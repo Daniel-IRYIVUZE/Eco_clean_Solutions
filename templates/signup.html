@@ -15,7 +15,7 @@
             <button>CREATE ACCOUNT</button>
         </div>
         <div class="white-side">
-            <h2>Person Information</h2>
+            <h2>Registration</h2>
             <form>
                 <div class="form-group">
                     <label for="first-name">First Name</label>
@@ -48,7 +48,12 @@
                 </div>
                 <div class="form-group">
                     <label for="company">Company</label>
-                    <input  id="id" placeholder="ID" type="checkbox" required>
+                    <select id="company" name="company">
+                        <option value="">Select Company</option>
+                        <option value="company1">KABISA</option>
+                        <option value="company2">IRYIVUZE</option>
+                        <option value="company3">GANZA</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="new-password">New Password</label>
@@ -58,7 +63,6 @@
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" placeholder="Confirm New Password" required>
                 </div>
-                <button type="submit">CREATE ACCOUNT</button>
             </form>
         </div>
     </div>
