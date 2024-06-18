@@ -1,5 +1,6 @@
-from EcoApp import db
 from datetime import datetime
+from EcoApp import db
+
 
 class Company(db.Model):
     comId = db.Column(db.Integer, primary_key=True)
@@ -17,7 +18,7 @@ class Users(db.Model):
     village = db.Column(db.String(20), nullable=False)
     street = db.Column(db.String(20), nullable=True)
     password = db.Column(db.String(20), nullable=False)
-    phone_nber = db.Column(db.String(20), nullable=False)  # Changed to string to accommodate phone numbers
+    cell = db.Column(db.String(20), nullable=False)  # Changed to string to accommodate phone numbers
     orders = db.relationship('Order', backref='user', lazy=True)
 
 class Services(db.Model):
@@ -32,3 +33,4 @@ class Order(db.Model):  # Changed from 'orders' to 'Order' to follow naming conv
     company_id = db.Column(db.Integer, db.ForeignKey('company.comId'), nullable=False)
     service_id = db.Column(db.Integer, db.ForeignKey('services.sevId'), nullable=False)
     timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    status = db.Column(db.String(20), nullable=False)
