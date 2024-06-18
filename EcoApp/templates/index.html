@@ -13,6 +13,10 @@
     />
   </head>
   <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
     <header>
       <div class="logo">
         <img src="../static/images/logo1.png" alt="" />
@@ -21,11 +25,11 @@
 
       <nav>
         <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">REGISTER</a></li>
+          <li><a href="{{ url_for('index') }}">HOME</a></li>
+          <li><a href="{{ url_for('register') }}">REGISTER</a></li>
           <li><a href="#">DASHBOARD</a></li>
           <li><a href="#">CONTACT US</a></li>
-          <li><a href="#">LOG IN</a></li>
+          <li><a href="{{ url_for('login') }}">LOG IN</a></li>
         </ul>
       </nav>
     </header>
