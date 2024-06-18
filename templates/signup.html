@@ -1,33 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="static/signup.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="/templates/static/signup.css">
 </head>
 <body>
     <div class="container">
-        <div class="form-container form-in-container">
-            <form action="#">
-                <h1>Sign In</h1>
-                <input type="email" placeholder="Email" required />
-                <input type="password" placeholder="Password" required/>
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+        <div class="green-side">
+            <h2>Hello, Friend!</h2>
+            <p>Register with your personal details to use all of the site's features</p>
+            <button>CREATE ACCOUNT</button>
+        </div>
+        <div class="white-side">
+            <h2>Person Information</h2>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="second-name">Second Name</label>
+                    <input type="text" id="second-name" placeholder="Second Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" placeholder="mm/dd/yyyy" required>
+                </div>
+                <h2>Location</h2>
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" placeholder="District" required>
+                </div>
+                <div class="form-group">
+                    <label for="sector">Sector</label>
+                    <input type="text" id="sector" placeholder="Sector" required>
+                </div>
+                <div class="form-group">
+                    <label for="cell">Cell</label>
+                    <input type="text" id="cell" placeholder="Cell" required>
+                </div>
+                <div class="form-group">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" placeholder="Village" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input  id="id" placeholder="ID" type="checkbox" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" placeholder="New Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm New Password" required>
+                </div>
+                <button type="submit">CREATE ACCOUNT</button>
             </form>
         </div>
-        <div class="in-container">
-            <div class="in">
-                <div class="in-form in-form-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of the site's features</p>
-                    <button class="ghost" id="signUp">Create Account</a></button>
-                </div>
-            </div>
-        </div>
     </div>
-    <script src="static/signup.js"></script>
 </body>
 </html>
