@@ -36,6 +36,8 @@ body {
 
 .green-side h2, .white-side h2 {
     margin: 0 0 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .green-side p {
@@ -74,6 +76,13 @@ body {
     border-radius: 4px;
 }
 
+
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 @media (min-width: 600px) {
     .form-group {
         flex-direction: row;
@@ -86,6 +95,10 @@ body {
     }
 
     .form-group input {
+        flex: 2;
+    }
+
+    .form-group select {
         flex: 2;
     }
 }
