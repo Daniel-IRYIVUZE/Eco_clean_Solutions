@@ -1,20 +1,38 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root{
+
+    --FONT-HEADER: "Poppins", sans-serif;
+    --FONT--BASIC: "Roboto", sans-serif;
+}
+
 *{
-    font-family: sans-serif;
     box-sizing: border-box;
     color: #043504;
 }
 
+img{
+    width:100%;
+    height: auto;
+}
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-    background: url('https://www.angor.co.za/wp-content/uploads/2023/12/213156275_l_normal_none-Large.jpg') no-repeat center center fixed;
+    background-color: #f0f0f0;
     background-size: cover;
     color: #043504;
+    font-family: var(--FONT--BASIC);
 
     
+}
+.header-main h1 .hero h2 .services h2{
+    font-family: var(--FONT-HEADER);
 }
 
 .header-top {
@@ -27,34 +45,37 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding-top: 80px ;
     color: #fff;
-    position: sticky;
-    
+    z-index: 1000;
+    height: 15vh;
+}
+
+.header-main div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
 }
 
 .header-main nav{
-    position: sticky;
-    z-index: 1000;
-    top: 0;
     background-color: rgba(12, 12, 12, 0);
+    width:60%;
 }
 .header-main nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    display: flex;
     
 }
 
 .header-main nav ul li {
     float: left;
-    padding: 4px;
-    margin: 4px;
+
 }
 .header-main nav ul li a{
-    color: white;
+    color: black;
 }
 
 .header-main nav ul li a:hover {
@@ -71,7 +92,7 @@ body {
 }
 
 .hero {
-    background: url('') no-repeat center center/cover;
+    
     color: #0f0f0fe8;
     text-align: center;
     padding: 100px 20px;
