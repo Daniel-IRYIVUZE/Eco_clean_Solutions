@@ -109,6 +109,45 @@ body {
   font-size: 1.75rem;
 }
 
+h6 {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin: 20px 0;
+  text-align: left;
+}
+
+h6 input[type="date"] {
+  padding: 5px;
+  margin: 0 10px;
+  border: 0;
+  border-bottom: 1px solid #034b21;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 150px;
+  box-sizing: border-box;
+}
+
+h6 button[type="submit"] {
+  padding: 6px 12px;
+  background-color: #078a0e;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+h6 button[type="submit"]:hover {
+  background-color: #078a0e;
+}
+
+h6 input[type="date"]:focus,
+h6 button[type="submit"]:focus {
+  outline: none;
+  border-color: #078a0e;
+}
+
 .navigation ul li a .title {
   position: relative;
   display: block;
@@ -214,44 +253,6 @@ body {
   cursor: pointer;
 }
 
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-}
-
-.search label {
-  position: relative;
-  width: 100%;
-}
-
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.user {
-  position: relative;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.user img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* ======================= Cards ====================== */
 .counter {
   color: #ffffff;
@@ -273,11 +274,12 @@ body {
  
 .cardBox {
   position: relative;
-  width: 90%;
-  padding: 10px;
+  width: 100%;
+  height: 90vh;
+  padding: 5px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 80px;
+  grid-gap: 30px;
 }
 
 .cardBox .card {
@@ -321,142 +323,105 @@ body {
 /* ================== Order Details List ============== */
 
 .details {
-    
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    display: grid;
-    grid-gap: 30px;
-    border-bottom: 1px solid var(--grey);
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-gap: 30px;
+  border-bottom: 1px solid var(--grey);
 }
 
 .details .recentOrders {
-    position: relative;
-    display: grid;
-    background: var(--white);
-    padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+  position: relative;
+  display: grid;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
 }
 
 .details .cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cardHeader h2 {
-    font-weight: 900;
-    color: var(--black);
-    font-weight: 600;
-    text-decoration: darkcyan;
-
+  font-weight: 900;
+  color: var(--black);
+  text-decoration: darkcyan;
 }
 
 .cardHeader .btn {
-    padding: 10px 20px;
-    background: var(--side);
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 6px;
-    transition: background 0.3s;
-    cursor: pointer;
+  padding: 10px 20px;
+  background: var(--side);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+  transition: background 0.3s;
+  cursor: pointer;
 }
 
 .cardHeader .btn:hover {
-    background: #293541;
+  background: #293541;
 }
 
 .details table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-.details table thead td {
-    font-weight: 600;
-    background-color: var(--side);
-    color: var(--white);
-    padding: 15px;
+.details table thead th {
+  font-weight: 600;
+  background-color: var(--side);
+  color: var(--white);
+  padding: 15px;
 }
 
 .details .recentOrders table tr {
-    color: var(--black);
-    border-bottom: 1px solid var(--grey);
-    transition: background 0.3s, color 0.3s;
+  color: var(--black);
+  border-bottom: 1px solid var(--grey);
+  transition: background 0.3s, color 0.3s;
 }
 
 .details .recentOrders table tr:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .details .recentOrders table tbody tr:hover {
-    background: var(--grey);
-    color: var(--side);
-    font-size: 12px;
+  background: var(--grey);
+  color: var(--side);
+  font-size: 12px;
 }
 
 .details .recentOrders table tr td {
-    padding: 15px;
+  padding: 15px;
 }
 
 .details .recentOrders table tr td:last-child {
-    text-align: center;
+  text-align: center;
 }
 
-.details .recentOrders table tr td:nth-child(2) {
-    text-align: center;
-}
-
+.details .recentOrders table tr td:nth-child(2),
 .details .recentOrders table tr td:nth-child(3) {
-    text-align: center;
-}
-
-.status {
-    padding: 5px 10px;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    display: inline-block;
-    text-align: center;
-}
-
-.status.delivered {
-    background: var(--success);
-}
-
-.status.pending {
-    background: var(--warning);
-}
-
-.status.return {
-    background: var(--danger);
-}
-
-.status.progress {
-    background: var(--warning);
-}
-
-.status.complete {
-    background: var(--success);
-}
-
-.status.declined {
-    background: var(--danger);
+  text-align: center;
 }
 
 .action-dropdown {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid var(--grey);
-    cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--grey);
+  cursor: pointer;
 }
 
-.report {
-    display: none;
+.status {
+  text-align: center;
+  padding: 2px;
+  border-radius: 4px;
 }
+
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {
@@ -467,18 +432,21 @@ body {
     left: 0;
   }
   .main {
-    width: 100%;
+    width: 190%;
     left: 0;
   }
   .main.active {
     left: 300px;
   }
   .cardBox {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  .main{
+   max-width: 90%;
+  }
   .details {
     grid-template-columns: 1fr;
   }
@@ -490,16 +458,17 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 300px) {
+  .main{
+    max-width: 50%;
+   }
   .cardBox {
     grid-template-columns: repeat(1, 1fr);
   }
   .cardHeader h2 {
     font-size: 20px;
   }
-  .user {
-    min-width: 40px;
-  }
+ 
   .navigation {
     width: 100%;
     left: -100%;
@@ -519,67 +488,65 @@ body {
     left: initial;
   }
 
- .details .recentOrders {
+  .details .recentOrders {
     padding: 10px;
-    
-}
+  }
 
-.cardHeader h2 {
+  .cardHeader h2 {
     font-size: 1px;
-}
+  }
 
-.cardHeader .btn {
+  .cardHeader .btn {
     padding: 0px 16px;
     font-size: 14px;
-}
+  }
 
-.details .recentOrders {
+  .details .recentOrders {
     padding: 10px;
-}
+  }
 
-.cardHeader h2 {
+  .cardHeader h2 {
     font-size: 18px;
-}
+  }
 
-.cardHeader .btn {
-    padding: 8px 16px;
-    font-size: 14px;
-}
+  .cardHeader .btn {
+    padding: 2px 10px;
+    font-size: 10px;
+  }
 
-.details table, .details thead, .details tbody, .details th, .details td, .details tr {
+  .details table, .details thead, .details tbody, .details th, .details td, .details tr {
     display: block;
-}
+  }
 
-.details table thead {
+  .details table thead {
     display: none;
-}
+  }
 
-.details .recentOrders table tr {
+  .details .recentOrders table tr {
     margin-bottom: 5px;
     border-bottom: 2px solid var(--grey);
-}
+  }
 
-.details .recentOrders table tr:last-child {
+  .details .recentOrders table tr:last-child {
     border-bottom: none;
-}
+  }
 
-.details .recentOrders table tr td {
+  .details .recentOrders table tr td {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     text-align: left;
-}
+  }
 
-.details .recentOrders table tr td:before {
+  .details .recentOrders table tr td:before {
     content: attr(data-label);
     flex-basis: 50%;
     padding-right: 10px;
     font-weight: 600;
     color: var(--black-light);
-}
+  }
 
-.details .recentOrders table tr td:last-child {
+  .details .recentOrders table tr td:last-child {
     text-align: right;
-}
-
+  }
 }

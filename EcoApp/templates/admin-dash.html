@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="admin-dash.html">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -34,16 +33,7 @@
                 </li>
 
                 <li>
-                    <a href="#Customers">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Customers</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#requests">
+                    <a href="#recent">
                         <span class="icon">
                             <ion-icon name="receipt-outline"></ion-icon>
                         </span>
@@ -52,7 +42,16 @@
                 </li>
 
                 <li>
-                    <a href="#report">
+                    <a href="customers.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="adminrepo.html">
                         <span class="icon">
                             <ion-icon name="reader-outline"></ion-icon>
                         </span>
@@ -61,18 +60,7 @@
                 </li>
 
                 <li>
-                    <a href="#support">
-                        <span class="icon">
-                            <ion-icon name="help-circle-outline"></ion-icon>
-                        </span>
-                        <span class="title">Support</span>
-                    </a>
-                </li>
-
-                <li>
-
-                    <li>
-                    <a href="login.html" class="logout">
+                    <a href="index.html" class="logout">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -88,136 +76,123 @@
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
             </div>
 
             <!-- ======================= Cards ================== -->
             <div class="cardBox" id="dashboard">
                 <div class="card">
-                    <div> <div class="sign">+</div>
-                        <div class="counter" data-target="54">0</div>
+                    <div>
+                        <div class="sign">+</div>
+                        <div class="counter" data-target="100">0</div>
                         <div class="cardName">Daily Views</div>
                     </div>
-
                     <div class="iconBx">
                         <ion-icon name="eye-outline"></ion-icon>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div> <div class="sign">+</div>
-                        <div class="counter" data-target="4000"></div>
-                        <div class="cardName">Registered Users</div>
+                    <div>
+                        <div class="sign">+</div>
+                        <div class="counter" data-target="50"></div>
+                        <div class="cardName">Customers</div>
                     </div>
-
                     <div class="iconBx">
                         <ion-icon name="people-outline"></ion-icon>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div> <div class="sign">+</div>
-                        <div class="counter" data-target="400">0</div>
+                    <div>
+                        <div class="sign">+</div>
+                        <div class="counter" data-target="200">0</div>
                         <div class="cardName">Employees</div>
                     </div>
-
                     <div class="iconBx">
                         <ion-icon name="person-add-outline"></ion-icon>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div> <div class="sign">+</div>
-                        <div class="counter" data-target="700">0</div>
+                    <div>
+                        <div class="sign">+</div>
+                        <div class="counter" data-target="230">0</div>
                         <div class="cardName">Daily Earning</div>
                     </div>
-
                     <div class="iconBx">
                         <ion-icon name="wallet-outline"></ion-icon>
                     </div>
                 </div>
             </div>
 
-    <!-- ================ Order Details List ================= -->
-    <div class="details">
-        <div class="recentOrders">
-            <div class="cardHeader">
-                <h2>Recent Orders</h2>
-            </div>
-
-            <table class="report" id="orderTable">
-                <thead>
-                    <tr>
-                        <td>Client name</td>
-                        <td>Service</td>
-                        <td>Price</td>
-                        <td>Payment</td>
-                        <td>Status</td>
-                        <td>Action</td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td data-label="Name">Uwonkunda David Ian Placide</td>
-                        <td data-label="Name">Fire damage cleanup</td>
-                        <td data-label="Price">$120</td>
-                        <td data-label="Payment">Paid</td>
-                        <td data-label="Status"><span class="status delivered">No option </span></td>
-                        <td data-label="Action">
-                            <select class="action-dropdown">
-                                <option value="pending">Choose status</option>
-                                <option value="pending">Pending</option>
-                                <option value="complete">Delivered</option>
-                                <option value="declined">Declined</option>
-                            </select>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="Customers">
+            <!-- ================ Order Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
-                    <div class="cardHeader">
+                    <div class="cardHeader" id="recent">
                         <h2>Recent Orders</h2>
-                        
                     </div>
-        
-                    <table class="report" id="orderTable">
+                    <table>
                         <thead>
                             <tr>
-                                <td>Client name</td>
-                                <td>Service</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                                <td>Action</td>
+                                <th>Client name</th>
+                                <th>Service</th>
+                                <th>Price</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-        
                         <tbody>
                             <tr>
-                                <td data-label="Name">Uwonkunda David Ian Placide</td>
-                                <td data-label="Name">Fire damage cleanup</td>
-                                <td data-label="Price">$120</td>
-                                <td data-label="Payment">Paid</td>
-                                <td data-label="Status"><span class="status delivered">No option </span></td>
-                                <td data-label="Action">
-                                    <select class="action-dropdown">
-                                        <option value="pending">Choose status</option>
-                                        <option value="pending">Pending</option>
-                                        <option value="complete">Delivered</option>
-                                        <option value="declined">Declined</option>
+                                <td>Uwonkunda David Ian Placide</td>
+                                <td>Fire damage cleanup</td>
+                                <td>$120</td>
+                                <td>Paid</td>
+                                <td class="status">No option</td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this)">
+                                        <option value="No option">Choose status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Declined">Declined</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Uwonkunda David Ian Placide</td>
+                                <td>Fire damage cleanup</td>
+                                <td>$120</td>
+                                <td>Paid</td>
+                                <td class="status">No option</td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this)">
+                                        <option value="No option">Choose status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Declined">Declined</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Uwonkunda David Ian Placide</td>
+                                <td>Fire damage cleanup</td>
+                                <td>$120</td>
+                                <td>Paid</td>
+                                <td class="status">No option</td>
+                                <td>
+                                    <select class="status-select" onchange="updateStatus(this)">
+                                        <option value="No option">Choose status</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Declined">Declined</option>
                                     </select>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-        </div>
     </div>
-   
+
     <!-- =========== Scripts =========  -->
     <script src="static/admin-dash.js"></script>
 
