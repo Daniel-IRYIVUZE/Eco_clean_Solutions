@@ -93,15 +93,12 @@ nav ul li a:active {
 
 .services {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 20px;
   max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
-  /*background-color: white; */
-  /* border: 1px solid #ddd; */
-  /* border-radius: 8px; */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #0435049f;
 }
 
 .services,
@@ -124,30 +121,26 @@ nav ul li a:active {
 
 .services,
 .about,
-.clients,
-.blog {
+.clients {
   padding: 40px 20px;
 }
 
 .services h2,
 .about h2,
-.clients h2,
-.blog h2 {
+.clients h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
 .service-list,
-.client-list,
-.blog-list {
+.client-list {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .service,
-.client,
-.blog-post {
+.client {
   background-color: #f9f9f9;
   padding: 20px;
   margin: 10px;
@@ -156,10 +149,107 @@ nav ul li a:active {
   border-radius: 5px;
   min-width: 200px;
 }
+
 .about {
-  color: rgb(8, 8, 8);
+  color: #080808;
   font-size: 20px;
+  background-color: #00606f8a;
+  padding: 50px 0; 
 }
+
+.about .container {
+  max-width: 1200px; 
+  margin: 10px auto; 
+  justify-content: space-between;
+}
+
+.about .card {
+  background-color: #fff; 
+  padding: 20px;
+  margin-bottom: 20px; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about .card h2 {
+  color: #00606f; 
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about .card p {
+  color: #333; 
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .about .card {
+    max-width: 100%; 
+  }
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+}
+
+#map-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#map-container iframe {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.message-box {
+  resize: none;
+  height: 150px;
+}
+
+.scroll-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.scroll-buttons button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 
 footer {
   background-color: #333;
@@ -184,6 +274,7 @@ footer {
 .slideshow-container {
   object-fit: cover;
   width: 75%;
+  height: 100vh;
   position: relative;
   margin: auto;
 }
@@ -215,6 +306,7 @@ footer {
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+  position: cover;
 }
 
 /* Caption text */
