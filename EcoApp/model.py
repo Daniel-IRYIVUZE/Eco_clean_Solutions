@@ -26,12 +26,16 @@ class Users(db.Model, UserMixin):
     cell = db.Column(db.String(20), nullable=False)
     orders = db.relationship('Order', backref='user', lazy=True)
 
+    def __repr__(self):
+        return(f"{self.id}, {self.email}, {self.first_name},{self.last_name}")
+
 
 class Services(db.Model):
     id= db.Column(db.Integer, primary_key=True)
     service_name = db.Column(db.String(50), nullable=False, unique=True)
     price = db.Column(db.Integer, nullable=False)
     orders = db.relationship('Order', backref='service', lazy=True)
+
 
 class Order(db.Model):  # Changed from 'orders' to 'Order' to follow naming conventions
     id = db.Column(db.Integer, primary_key=True)

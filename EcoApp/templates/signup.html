@@ -5,13 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up Page</title>
     <link rel="stylesheet" href="../static/signup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EC9coM9+T7MPhzchb0ojmBddXlPVZX5nY/W71rtyJ1usKXwntvMA5GCrf6ccfF2U"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <div
+      class="alert alert-{{ category }} alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>{{ message }}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+
     <div class="container">
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %} {% for category, message in messages %}
-      <div class=" fixed alert alert-{{ category }}">{{ message }}</div>
-      {% endfor %} {% endif %} {% endwith %}
       <div class="green-side">
         <h2>Hello, Friend! 👋</h2>
         <p>
@@ -22,35 +40,158 @@
         <h2>REGISTRATION FORM</h2>
         <form action="{{ url_for('register') }}" method="post">
           {{ form.hidden_tag() }}
-          <div class="form-group">
-            {{ form.firstname.label }} {{ form.firstname }}
+
+          <div class="form-group row">
+            {{ form.firstname.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.firstname(class="form-control") }} {% if
+              form.firstname.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.firstname.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">
-            {{ form.lastname.label }} {{ form.lastname }}
+
+          <div class="form-group row">
+            {{ form.lastname.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.lastname(class="form-control") }} {% if
+              form.lastname.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.lastname.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">{{ form.email.label }} {{ form.email }}</div>
-          <div class="form-group">
-            {{ form.district.label }} {{ form.district }}
+
+          <div class="form-group row">
+            {{ form.email.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.email(class="form-control") }} {% if form.email.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.email.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">
-            {{ form.sector.label }} {{ form.sector }}
+
+          <div class="form-group row">
+            {{ form.district.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.district(class="form-control") }} {% if
+              form.district.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.district.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">{{ form.cell.label }} {{ form.cell }}</div>
-          <div class="form-group">
-            {{ form.village.label }} {{ form.village }}
+
+          <div class="form-group row">
+            {{ form.sector.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.sector(class="form-control") }} {% if form.sector.errors
+              %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.sector.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">
-            {{ form.street.label }} {{ form.street }}
+
+          <div class="form-group row">
+            {{ form.cell.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.cell(class="form-control") }} {% if form.cell.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.cell.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">
-            {{ form.password.label }} {{ form.password }}
+
+          <div class="form-group row">
+            {{ form.village.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.village(class="form-control") }} {% if form.village.errors
+              %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.village.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">
-            {{ form.confirm_password.label }} {{ form.confirm_password }}
+
+          <div class="form-group row">
+            {{ form.street.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.street(class="form-control") }} {% if form.street.errors
+              %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.street.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
           </div>
-          <div class="form-group">{{ form.submit(class="submit") }}</div>
+
+          <div class="form-group row">
+            {{ form.password.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.password(class="form-control") }} {% if
+              form.password.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.password.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            {{ form.confirm_password.label(class="col-sm-4 col-form-label") }}
+            <div class="col-sm-8">
+              {{ form.confirm_password(class="form-control") }} {% if
+              form.confirm_password.errors %}
+              <div class="invalid-feedback d-block">
+                {% for error in form.confirm_password.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-8 offset-sm-4">
+              {{ form.submit(class="submit btn btn-primary mt-3") }}
+            </div>
+          </div>
         </form>
       </div>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-PL6hRWSVhctqOwWz+OHD/fBpOBw1Kkwo+j5dPbYjF4IiT+I/6kV6dB56fiYnoLJm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

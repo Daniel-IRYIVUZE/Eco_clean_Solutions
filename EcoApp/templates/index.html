@@ -25,11 +25,18 @@
 
       <nav>
         <ul>
+          {% if current_user.is_authenticated %}
           <li><a href="{{ url_for('index') }}">HOME</a></li>
-          <li><a href="{{ url_for('register') }}">REGISTER</a></li>
-          <li><a href="#">DASHBOARD</a></li>
+          <li><a href="{{ url_for('user_dash') }}">DASHBOARD</a></li>
           <li><a href="#">CONTACT US</a></li>
+          <li><a href="{{ url_for('logout') }}">LOG OUT</a></li>
+          {% else %}
+          <li><a href="{{ url_for('index') }}">HOME</a></li>
+          <li><a href="{{ url_for('user_dash') }} ">DASHBOARD</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li><a href="{{ url_for('register') }}">REGISTER</a></li>
           <li><a href="{{ url_for('login') }}">LOG IN</a></li>
+          {% endif %}
         </ul>
       </nav>
     </header>

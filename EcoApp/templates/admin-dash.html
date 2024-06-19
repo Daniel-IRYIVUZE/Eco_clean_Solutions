@@ -1,204 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpg" type="jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.jpg') }}"
+      type="image/jpg"
+    />
     <title>Eco Clean Solution | Admin</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="static/admin-dash.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='admin-dash.css') }}"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#dashboard">
-                        <img class="icon" src="images/logo.png" alt="">
-                        <span class="title">ECO CLEAN SOLUTION</span>
-                    </a>
-                </li>
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#dashboard">
+              <img
+                class="icon"
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt=""
+              />
+              <span class="title">ECO CLEAN SOLUTION</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="admin-dash.html">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
+          <li>
+            <a href="admin-dash.html">
+              <span class="icon">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="#recent">
-                        <span class="icon">
-                            <ion-icon name="receipt-outline"></ion-icon>
-                        </span>
-                        <span class="title">Requests</span>
-                    </a>
-                </li>
+          <li>
+            <a href="#recent">
+              <span class="icon">
+                <ion-icon name="receipt-outline"></ion-icon>
+              </span>
+              <span class="title">Requests</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="customers.html">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Customers</span>
-                    </a>
-                </li>
+          <li>
+            <a href="customers.html">
+              <span class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </span>
+              <span class="title">Customers</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="adminrepo.html">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Report</span>
-                    </a>
-                </li>
+          <li>
+            <a href="adminrepo.html">
+              <span class="icon">
+                <ion-icon name="reader-outline"></ion-icon>
+              </span>
+              <span class="title">Report</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="index.html" class="logout">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Log Out</span>
-                    </a>
-                </li>
-            </ul>
+          <li>
+            <a href="index.html" class="logout">
+              <span class="icon">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span>
+              <span class="title">Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ========================= Main ==================== -->
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
         </div>
 
-        <!-- ========================= Main ==================== -->
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
+        <!-- ======================= Cards ================== -->
+        <div class="cardBox" id="dashboard">
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="100">0</div>
+              <div class="cardName">Daily Views</div>
             </div>
-
-            <!-- ======================= Cards ================== -->
-            <div class="cardBox" id="dashboard">
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="100">0</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="50"></div>
-                        <div class="cardName">Customers</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="200">0</div>
-                        <div class="cardName">Employees</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="person-add-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="230">0</div>
-                        <div class="cardName">Daily Earning</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="wallet-outline"></ion-icon>
-                    </div>
-                </div>
+            <div class="iconBx">
+              <ion-icon name="eye-outline"></ion-icon>
             </div>
+          </div>
 
-            <!-- ================ Order Details List ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader" id="recent">
-                        <h2>Recent Orders</h2>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Client name</th>
-                                <th>Service</th>
-                                <th>Price</th>
-                                <th>Payment</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="50"></div>
+              <div class="cardName">Customers</div>
+            </div>
+            <div class="iconBx">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="200">0</div>
+              <div class="cardName">Employees</div>
+            </div>
+            <div class="iconBx">
+              <ion-icon name="person-add-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="230">0</div>
+              <div class="cardName">Daily Earning</div>
+            </div>
+            <div class="iconBx">
+              <ion-icon name="wallet-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================ Order Details List ================= -->
+        <div class="details">
+          <div class="recentOrders">
+            <div class="cardHeader" id="recent">
+              <h2>Recent Orders</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Client name</th>
+                  <th>Service</th>
+                  <th>Price</th>
+                  <th>Payment</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Uwonkunda David Ian Placide</td>
+                  <td>Fire damage cleanup</td>
+                  <td>$120</td>
+                  <td>Paid</td>
+                  <td class="status">No option</td>
+                  <td>
+                    <select class="status-select" onchange="updateStatus(this)">
+                      <option value="No option">Choose status</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Declined">Declined</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Uwonkunda David Ian Placide</td>
+                  <td>Fire damage cleanup</td>
+                  <td>$120</td>
+                  <td>Paid</td>
+                  <td class="status">No option</td>
+                  <td>
+                    <select class="status-select" onchange="updateStatus(this)">
+                      <option value="No option">Choose status</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Declined">Declined</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Uwonkunda David Ian Placide</td>
+                  <td>Fire damage cleanup</td>
+                  <td>$120</td>
+                  <td>Paid</td>
+                  <td class="status">No option</td>
+                  <td>
+                    <select class="status-select" onchange="updateStatus(this)">
+                      <option value="No option">Choose status</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Declined">Declined</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="static/admin-dash.js"></script>
+    <script src="{{ url_for('static', filename='admin-dash.js') }}"></script>
 
     <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>

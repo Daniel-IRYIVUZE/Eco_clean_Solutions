@@ -2,7 +2,7 @@ from flask import render_template, flash, url_for, redirect, request
 from EcoApp import app, db, bcrypt
 from EcoApp.form import RegisterForm, LoginForm
 from EcoApp.model import Users, Company, Services, Order
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
 @app.route('/home')
@@ -11,6 +11,9 @@ def index():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    if current_user.is_authenticated:
+        print(current_user)
+        return redirect(url_for('index'))
     form = RegisterForm()
     if form.validate_on_submit():
         hashed_pw = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
@@ -33,6 +36,8 @@ def register():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
         user = Users.query.filter_by(email=form.email.data).first()
@@ -40,10 +45,16 @@ def login():
             login_user(user, remember=form.remember.data)
             return redirect(url_for('index'))  # Redirect to a valid route
         else:
-            flash("Log in unsuccessful. Check your email and password", 'danger')
+            flash("Log in unsuccessful. Check your email and password", 'warning')
     return render_template('login.html', form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route("/dashboard")
+@login_required
+def user_dash():
+
+    return render_template("user-dash.html")
