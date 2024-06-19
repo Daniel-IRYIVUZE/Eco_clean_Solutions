@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg" type="jpg">
+    <title>Eco Clean Solution | Users</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="static/sup-dash.css">
+</head>
+
+<body>
+ <!-- =============== Navigation ================ -->
+ <div class="container">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#dashboard">
+                    <img class="icon" src="images/logo.png" alt="">
+                    <span class="title">ECO CLEAN SOLUTION</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="sup-dash.html">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="users.html">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Users</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="companies.html">
+                    <span class="icon">
+                        <ion-icon name="podium-outline"></ion-icon>
+                    </span>
+                    <span class="title">Companies</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </span>
+                    <span class="title">Add company</span>
+                </a>
+            </li>
+            <li>
+
+                <li>
+                <a href="index.html" class="logout">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                        <h1>REGISTER NEW COMPANY</h1>
+                        <form id="registrationForm">
+                            <div class="form-grid">
+                              <div class="form-group">
+                                <label for="registrationId">Registration ID</label>
+                                <input type="text" id="registrationId" name="registrationId" required>
+                                <div class="error" id="registrationIdError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" id="companyName" name="companyName" required>
+                                <div class="error" id="companyNameError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="ceo">CEO</label>
+                                <input type="text" id="ceo" name="ceo" required>
+                                <div class="error" id="ceoError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="district">District</label>
+                                <select id="district" name="district" required>
+                                  <option value="">Select District</option>
+                                  <option value="Gasabo">Gasabo</option>
+                                  <option value="Kicukiro">Kicukiro</option>
+                                  <option value="Nyarugenge">Nyarugenge</option>
+                                  <option value="Muhanga">Muhanga</option>
+                                  <!-- Add more districts as needed -->
+                                </select>
+                                <div class="error" id="districtError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="sector">Sector</label>
+                                <select id="sector" name="sector" required>
+                                  <option value="">Select Sector</option>
+                                  <!-- Sectors will be dynamically populated based on district -->
+                                </select>
+                                <div class="error" id="sectorError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="cell">Cell</label>
+                                <select id="cell" name="cell" required>
+                                  <option value="">Select Cell</option>
+                                  <!-- Cells will be dynamically populated based on sector -->
+                                </select>
+                                <div class="error" id="cellError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="village">Village</label>
+                                <select id="village" name="village" required>
+                                  <option value="">Select Village</option>
+                                  <!-- Villages will be dynamically populated based on cell -->
+                                </select>
+                                <div class="error" id="villageError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error" id="emailError"></div>
+                              </div>
+                              <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <div class="phone-group">
+                                  <select id="countryCode" name="countryCode" required>
+                                    <option value="+250">+250</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+44">+44</option>
+                                  </select>
+                                  <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{9}">
+                                </div>
+                                <div class="error" id="phoneNumberError"></div>
+                              </div>
+                              <div class="form-group">
+                                <button type="submit">SAVE</button>
+                              </div>
+                            </div>
+                          </form>
+                </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="static/sup-dash.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
