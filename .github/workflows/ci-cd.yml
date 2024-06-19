@@ -47,8 +47,8 @@ jobs:
 
     - name: Deploy to web-01
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.98.206 'docker pull niyonshutidavid/ecoapp:latest && docker stop $(docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.98.206 'sudo docker pull niyonshutidavid/ecoapp:latest && sudo docker stop $(sudo docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
 
     - name: Deploy to web-02 
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.23.160 'docker pull niyonshutidavid/ecoapp:latest && docker stop $(docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.23.160 'sudo docker pull niyonshutidavid/ecoapp:latest && sudo docker stop $(sudo docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
