@@ -53,7 +53,7 @@ function updateStatus(selectElement) {
             statusCell.style.color = "green";
             break;
         case "Pending":
-            statusCell.style.color = "yellow";
+            statusCell.style.color = "orange";
             break;
         case "Declined":
             statusCell.style.color = "red";
@@ -62,5 +62,26 @@ function updateStatus(selectElement) {
             statusCell.style.backgroundColor = "";
             statusCell.style.color = "black";
             break;
+    }
+}
+
+function deleteUser(userId) {
+    if (confirm("Are you sure you want to delete this user?")) {
+        fetch(`/delete-user/${userId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("User deleted successfully.");
+                // Optionally, remove the user row from the table
+                document.getElementById(`user-${userId}`).remove();
+            } else {
+                alert("Failed to delete user.");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Error deleting user.");
+        });
     }
 }
