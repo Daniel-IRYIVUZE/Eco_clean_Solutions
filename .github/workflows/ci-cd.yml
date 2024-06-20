@@ -13,6 +13,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run unittest
+      run: |
+        python3 -m unittest discover -s tests
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
@@ -40,7 +54,6 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh
-        mkdir -p /home/runner/.ssh/
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -56,3 +69,4 @@ jobs:
           sudo docker pull niyonshutidavid/ecoapp:latest
           sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest
         '
+
