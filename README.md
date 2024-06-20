@@ -1,3 +1,5 @@
+![image](https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/assets/144002340/67b875b1-bd14-46c2-8bc9-8bfde43f6c03)
+
 # Eco Clean Solutions
 Eco clean solution is a web application that allows users to manage waste collection schedules, track recycling efforts, and view environmental impact metrics. The system supports three primary user roles: Household Users, Waste Collection Services, and Administrators.
 
