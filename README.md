@@ -1,4 +1,5 @@
-<img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/assets/144002340/67b875b1-bd14-46c2-8bc9-8bfde43f6c03" alt="Eco Clean Solutions Logo" width="300" height="auto">
+<img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/blob/main/EcoApp/static/images/Macbook-Air.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
+<img src="EcoApp/static/images/iPhone-13-PRO.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
 
 # Eco Clean Solutions
 
