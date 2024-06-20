@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/error.css">
+    <title>Error Page</title>
+</head>
+<body>
+    <div class="err-cont">
+        <img src="../static/images/unhappy.png" alt="sad face">
+        {% if error %}
+            <h2>{{error.code}}</h2>
+            <p>{{error.description}}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
