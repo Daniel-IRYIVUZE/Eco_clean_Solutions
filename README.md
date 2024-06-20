@@ -1,8 +1,3 @@
-<p>
-    <img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/blob/main/EcoApp/static/images/Macbook-Air.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
-    <img src="EcoApp/static/images/iPhone-13-PRO.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
-</p>
-
 # Eco Clean Solutions
 
 ## Project Overview
@@ -93,3 +88,9 @@ Contributors to the development of the web application:
 - [Vanessa Uwonkunda](mailto:v.uwonkunda@alustudent.com)
 - [Ian Ganza](mailto:i.ganza@alustudent.com)
 - [Placide Kabisa Manzi](mailto:p.imanzi@alustudent.com)
+
+## Interface
+<p>
+    <img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/blob/main/EcoApp/static/images/Macbook-Air.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
+    <img src="EcoApp/static/images/iPhone-13-PRO.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
+</p>
