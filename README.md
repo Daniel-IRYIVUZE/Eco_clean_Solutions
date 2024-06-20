@@ -74,7 +74,7 @@ We have set up a continuous integration and continuous deployment (CI/CD) pipeli
    sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest
    ```
 3. Accessing the Application
-   You can find the web application at [Eco Clean Solutions](https://www.davidniyonshuti.tech/)
+  You can find the web application at https://www.davidniyonshuti.tech/
 
 ## Authors
 Contributors to the development of the web application:
