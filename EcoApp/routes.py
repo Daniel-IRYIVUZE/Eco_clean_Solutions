@@ -73,7 +73,11 @@ def admin():
 
 @app.errorhandler(403)
 def forbidden(error):
-    return render_template('403.html'), 403
+    return render_template('error.html',error=error), 403
+
+@app.errorhandler(404)
+def forbidden(error):
+    return render_template('error.html',error=error), 404
 
 
 @app.route("/admin/customers")
