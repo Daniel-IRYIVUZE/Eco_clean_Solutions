@@ -9,43 +9,47 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
     
-  <link href="img/logo.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ url_for('static', filename='img/logo.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
   
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<!-- ============================================================
-                          HOME SECTION
-============================================================ -->
+
 <body>
 
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo"><img src="img/logo.png" alt="" class="img-fluid"></a>
+      <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="" class="img-fluid"></a>
 
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">HOME</a></li>
-          <li><a class="nav-link" href="login.html">DASHBOARD</a></li>
+          {% if current_user.is_authenticated %}
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">HOME</a></li>
+          <li><a class="nav-link" href="{{ url_for('user_dash') }}">DASHBOARD</a></li>
           <li><a class="nav-link  scrollto" href="#footer">CONTACT US</a></li>
           <li><a class="nav-link  scrollto" href="#journal">SERVICES</a></li>
-          <li><a class="nav-link  scrollto" href="signup.html">REGISTER</a></li>
-          <li><a class="nav-link  scrollto" href="login.html">LOGIN</a></li>
-
+          {% else %}
+          <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">HOME</a></li>
+          <li><a class="nav-link" href="{{ url_for('user_dash') }}">DASHBOARD</a></li>
+          <li><a class="nav-link  scrollto" href="#footer">CONTACT US</a></li>
+          <li><a class="nav-link  scrollto" href="#journal">SERVICES</a></li>
+          <li><a class="nav-link  scrollto" href="{{ url_for('register') }}">REGISTER</a></li>
+          <li><a class="nav-link  scrollto" href="{{ url_for('login') }}">LOGIN</a></li>
+          {% endif %}
         </ul>
           
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -63,15 +67,12 @@
         text-transform: uppercase;
         color: #fff;">ECO CLEAN SOLUTION</h1>
         <h2><span class="typed" data-typed-items="Our dedication is to have a clean and smooth environment"></span></h2><br><br>
-        <a href="/EcoApp/templates/login.html">GET STARTED</a>
+        <a href=" {{ url_for('register') }}">GET STARTED</a>
       </div>
           
       </div>
     </div>
   </div>
-<!-- ============================================================
-                          MISSION AND VISION SECTION
-============================================================ -->
 
 <section id="education" class="paddsection">
   <div class="container">
@@ -119,7 +120,7 @@
                   <div class="description">
                     <h3>Dumpster Rental</h3>
                     <p>Reliable dumpster rental for residential, commercial, and industrial waste management. Eco-friendly, and flexible priced.</p>
-                  <button>BOOK NOW</button>
+                  <button><a href="https://miro.medium.com/v2/resize:fit:1400/1*hq726b90p6wKlaImBUmYzg.jpeg">Book now</a></button>
                   </div>
                 </div>
                 <div class="service">
@@ -129,7 +130,7 @@
                   <div class="description">
                     <h3>Secure destruction</h3>
                     <p>Provides safe, confidential disposal of sensitive documents and materials, ensuring privacy and compliance.<br></p>
-                    <button>BOOK NOW</button>
+                    <button><a href="{{ url_for('book',service_name='Secure Destruction') }}">Book now</a></button>
                   </div>
                 </div>
                 <div class="service">
@@ -139,18 +140,18 @@
                   <div class="description">
                     <h3>Residential Recycling</h3>
                     <p>Specialized program efficiently collects and recycles paper, plastics, glass, metals for a greener community.</p>
-                    <button>BOOK NOW</button>
+                    <button><a href="{{ url_for('book',service_name='Residential Recycling') }}">Book now</a></button>
                   </div>
                 </div>
         
                 <div class="service">
                   <img
-                    src="https://www.oddjobsareusinc.com/wp-content/uploads/2023/12/junk-removal-fairfax-area-scaled-1.jpg"
+                    src="{{ url_for('static', filename='img/service4.jpg') }}"
                   />
                   <div class="description">
                     <h3>Junk <br>Removal</h3>
                     <p>Quickly and efficiently remove unwanted items, ensuring eco-friendly disposal for homes and businesses.</p>
-                    <button>BOOK NOW</button>
+                    <button><a href="{{ url_for('book', service_name='Junky Removal' ) }}">Book now</a></button>
                   </div>
                 </div>
               </div>
@@ -209,14 +210,12 @@
   <p class="text-center"><b>&copy; 2024 ECO CLEAN SOLUTION. All rights reserved.<b></b></p>
  </footer>
 
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="vendor/typed.js/typed.umd.js"></script>
-  <script src="vendor/php-email-form/validate.js"></script>
-  <script src="js/main.js"></script>
-</main>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/typed.js/typed.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
-

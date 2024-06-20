@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --FONT-HEADER: 'Poppins', sans-serif;
+  --FONT--BASIC: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f0f0f0;
+  background-size: cover;
+  color: #043504;
+  font-family: var(--FONT--BASIC);
+}
+
+.hero {
+  background: linear-gradient(rgba(48, 48, 54, 0.822), rgba(53, 50, 58, 0.479)), url("/EcoApp/static/images/trash2.jpg") repeat scroll center center/cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 80px;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  margin-top: 10%;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero-content h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.hero-content a{
+  text-decoration: none;
+  color: #4caf50;
+  font-family: var(--FONT-HEADER);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.services {
+  display: grid;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #4caf50;
+}
+
+.services img,
+.service img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.services .service .description {
+  display: flex;
+  flex-direction: column;
+}
+
+.services .service .description p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about {
+  color: #080808;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 50px 0; 
+}
+
+.about .container {
+  max-width: 1200px; 
+  margin: 10px auto; 
+  justify-content: space-between;
+}
+
+.about .card {
+  background-color: #4caf50; 
+  padding: 20px;
+  margin-bottom: 20px; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about .card h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-family: var(--FONT-HEADER);
+}
+
+.about .card p {
+  color: #333; 
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: var(--FONT--BASIC);
+}
+
+@media (max-width: 992px) {
+  .about .card {
+    max-width: 100%; 
+  }
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #0939415d;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: #4caf50;
+  border-radius: 20px;
+  border: 1px solid #745a55;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+}
+
+.contact, .location {
+  color: white;
+  padding: 20px;
+}
+
+.contact h2, .location h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+}
+
+.info-list li i {
+  margin-right: 5px;
+}
+
+.social a{
+  color: white;
+  margin-right: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.map {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.map iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border-radius: 8px;
+  border: 0;
+}
+
+.footer {
+  background-color: #2c2727;
+  color: white;
+  padding: 20px 0;
+}
+

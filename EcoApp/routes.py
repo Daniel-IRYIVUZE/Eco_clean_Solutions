@@ -151,7 +151,7 @@ def book(service_name):
         db.session.commit()
         
         flash("Your order has been placed successfully", "success")
-        return redirect(url_for('index'))
+        return redirect(url_for('user_dash'))
     
     time = {
         "Junky Removal": "9am to 11 am",
