@@ -32,7 +32,7 @@ Eco clean solution is a web application that allows users to manage waste collec
    sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest
    ```
 ## Accessing at the domain
-You can find the web application at https:www.davidniyonshuti.tech
+You can find the web application at https://www.davidniyonshuti.tech/
 
 ## Authors
 Contributors to the development of the web application:
