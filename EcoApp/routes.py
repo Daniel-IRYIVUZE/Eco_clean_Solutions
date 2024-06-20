@@ -1,7 +1,7 @@
 from flask import render_template, flash, url_for, redirect, request, abort
 from EcoApp import app, db, bcrypt
-from EcoApp.form import RegisterForm, LoginForm
-from EcoApp.model import Users, Company, Services, Order
+from EcoApp.form import RegisterForm, LoginForm,ServiceForm
+from EcoApp.model import Users,Services, Order, OrderServices
 from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
@@ -63,9 +63,13 @@ def user_dash():
 @app.route("/admin")
 @login_required
 def admin():
+    users = Users.query.filter(Users.email != "admin@gmail.com").all()
+    orders= Order.query.filter_by(status="pending").all()
+    ordersNumber= len(orders)
+    usersNumber= len(users)
     if not current_user.is_authenticated or not current_user.is_admin:
         abort(403)
-    return render_template("admin-dash.html")
+    return render_template("admin-dash.html", number=usersNumber)
 
 @app.errorhandler(403)
 def forbidden(error):
@@ -75,9 +79,55 @@ def forbidden(error):
 @app.route("/admin/customers")
 @login_required
 def customers():
-    return render_template("customers.html")
+    if not current_user.is_authenticated or not current_user.is_admin:
+        abort(403)
+    users = Users.query.filter(Users.email != "admin@gmail.com").all()
+    return render_template("customers.html", users=users)
 
 @app.route("/admin/report")
 @login_required
 def report():
     return render_template("adminrepo.html")
+
+@app.route("/book/<service_name>", methods=["GET", "POST"])
+@login_required
+def book(service_name):
+    form = ServiceForm()
+    service = Services.query.filter_by(service_name=service_name).first()
+    
+    if not service:
+        flash("Service not found", "danger")
+        return redirect(url_for('index'))
+    
+    name = service.service_name
+    form.serviceName.data = name
+    form.price.data = service.price
+    
+    if request.method == "POST" and form.validate_on_submit():
+        # Create a new order
+        new_order = Order(
+            user_id=current_user.id,
+            scheduled_date=form.date.data,
+            status='Pending'
+        )
+        db.session.add(new_order)
+        db.session.commit()
+        
+        # Create an entry in the OrderServices table
+        order_service = OrderServices(
+            order_id=new_order.id,
+            service_id=service.id
+        )
+        db.session.add(order_service)
+        db.session.commit()
+        
+        flash("Your order has been placed successfully", "success")
+        return redirect(url_for('index'))
+    
+    time = {
+        "Junky Removal": "9am to 11 am",
+        "Secure Destruction": "3pm to 5pm",
+        "Residential Recycling": "1pm to 3pm"
+    }.get(name, "9am to 5pm")
+
+    return render_template("booking.html", form=form, time=time)

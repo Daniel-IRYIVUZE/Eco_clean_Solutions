@@ -91,65 +91,27 @@
                                 <th>Sector</th>
                                 <th>Cell</th>
                                 <th>Village</th>
-                                <th>Phone Number</th>
+                                <th>Email</th>
                                 <th>Email</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-
+                        {% for user in users %}
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td >Placide Imanzi </td>
-                            <td>Gasabo</td>
-                            <td>Kimironko</td>
-                            <td>Bibare</td>
-                            <td>Imena</td>
-                            <td>+250788202020</td>
-                            <td>ndi.umunyarwanda@client.com</td>
+                                <td>{{ user.id }}</td>
+                                <td >{{ user.first_name }} {{ user.last_name }}</td>
+                            <td>{{ user.district }}</td>
+                            <td>{{ user.sector }}</td>
+                            <td>{{ user.cell }}</td>
+                            <td>{{ user.village }}</td>
+                            <td>{{ user.street }}</td>
+                            <td>{{ user.email }}</td>
                             <td class="button-container">
                             <input type="button" value="Delete" onclick="deleteUser(2)">
                             </td> 
                             </tr>
-                            <tr>
-                               <td>2</td>
-                               <td >Ian Ganza</td>
-                               <td>Gasabo</td>
-                               <td>Kimironko</td>
-                               <td>Bibare</td>
-                               <td>Imena</td>
-                               <td>+250788202020</td>
-                               <td>ndi.umunyarwanda@client.com</td>
-                               <td class="button-container">
-                                <input type="button" value="Delete">
-                            </td>
-                               </tr>
-                            <tr>
-                                <td>3</td>
-                            <td >David Niyonshuti</td>
-                            <td>Gasabo</td>
-                            <td>Kimironko</td>
-                            <td>Bibare</td>
-                            <td>Imena</td>
-                            <td>+250788202020</td>
-                            <td>ndi.umunyarwanda@client.com</td>
-                            <td class="button-container">
-                                <input type="button" value="Delete" onclick="deleteUser(2)">
-                                </td>   
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td >Uwonkunda Vanessa</td>
-                            <td>Gasabo</td>
-                            <td>Kimironko</td>
-                            <td>Bibare</td>
-                            <td>Imena</td>
-                            <td>+250788202020</td>
-                            <td>ndi.umunyarwanda@client.com</td>   
-                            <td class="button-container">
-                                <input type="button" value="Delete" onclick="deleteUser(2)">
-                                </td> 
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
