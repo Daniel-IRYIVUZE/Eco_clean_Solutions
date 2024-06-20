@@ -12,6 +12,11 @@
 
   <body>
     <div class="container">
+      <div>
+        <a href="{{ url_for('index') }}"
+          ><ion-icon name="arrow-back-circle-outline"></ion-icon
+        ></a>
+      </div>
       <h2>Book a Service</h2>
       <form
         action="{{ url_for('book', service_name=form.serviceName.data) }}"

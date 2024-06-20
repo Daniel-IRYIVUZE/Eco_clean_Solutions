@@ -42,6 +42,8 @@
           <li><a class="nav-link" href="{{ url_for('user_dash') }}">DASHBOARD</a></li>
           <li><a class="nav-link  scrollto" href="#footer">CONTACT US</a></li>
           <li><a class="nav-link  scrollto" href="#journal">SERVICES</a></li>
+          <li><a class="nav-link  scrollto" href="{{ url_for('logout') }}">LOGOUT</a></li>
+
           {% else %}
           <li><a class="nav-link scrollto active" href="{{ url_for('index') }}">HOME</a></li>
           <li><a class="nav-link" href="{{ url_for('user_dash') }}">DASHBOARD</a></li>

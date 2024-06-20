@@ -31,9 +31,14 @@
         aria-label="Close"
       ></button>
     </div>
-    {} {% endfor %} {% endif %} {% endwith %}
+    {% endfor %} {% endif %} {% endwith %}
 
     <div class="container">
+      <div>
+        <a href="{{ url_for('index') }}"
+          ><ion-icon name="arrow-back-circle-outline"></ion-icon
+        ></a>
+      </div>
       <div class="form-container form-in-container">
         <form action="{{ url_for('login') }}" method="post">
           {{ form.hidden_tag() }}
