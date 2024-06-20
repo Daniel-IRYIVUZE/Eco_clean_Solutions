@@ -1,7 +1,7 @@
-![image](https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/assets/144002340/67b875b1-bd14-46c2-8bc9-8bfde43f6c03)
+![Eco Clean Solutions Logo](https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/assets/144002340/67b875b1-bd14-46c2-8bc9-8bfde43f6c03)
 
 # Eco Clean Solutions
-Eco clean solution is a web application that allows users to manage waste collection schedules, track recycling efforts, and view environmental impact metrics. The system supports three primary user roles: Household Users, Waste Collection Services, and Administrators.
+Eco Clean Solutions is an innovative web application that allows users to manage waste collection schedules, track recycling efforts, and view environmental impact metrics. The system supports three primary user roles: Household Users, Waste Collection Services, and Administrators.
 
 ## Features
 
@@ -11,19 +11,52 @@ Eco clean solution is a web application that allows users to manage waste collec
 - Waste Collection Services Management
 - Admin Dashboard
 
-## Technologies Used
+## Guidelines and Requirements
 
-- Frontend: HTML, CSS, JavaScript
-- Backend: Flask
-- Database: SQLite (Development), PostgreSQL/MySQL (Production)
-- ORM: SQLAlchemy
-- CI/CD: GitHub Actions
-- Deployment: Docker, Nginx
+### Project Setup
+- **Web Framework**: Flask
+- **Database**: SQLite (Development), MySQL (Production)
+- **ORM**: SQLAlchemy
+- **CI/CD**: GitHub Actions
 
-## Project Structure
+### Frontend Development
+- **Technologies**: HTML, CSS, JavaScript
+- **Design**: Responsive and modern UI using Bootstrap or similar CSS framework
+
+### Backend Development
+- **Framework**: Flask
+- **API**: RESTful API endpoints
+- **Authentication**: User authentication and authorization using Flask-Login
+- **Deployment**: Docker, Nginx
+
+## Project Structure and Functionalities
+
+### User Registration and Login
+We have implemented user registration and login functionalities using Flask-Login. This ensures secure access to the application and maintains user session management.
+
+### Waste Collection Schedule
+Household users can schedule waste collection and receive notifications. This feature ensures timely waste disposal and efficient collection routing.
+
+### Recycling Tracker
+Users can track their recycling efforts and view their environmental impact. This feature promotes recycling and provides valuable insights into the user's contributions to environmental sustainability.
+
+### User Dashboard
+Waste collection services can manage schedules and track performance through a dedicated dashboard. This feature enhances operational efficiency and service management.
+
+### Admin Dashboard
+Administrators can monitor overall system performance and manage users. The admin dashboard provides a comprehensive view of system metrics and user activities.
+
+### Data Structures and Algorithms
+We have used appropriate data structures to handle various application aspects. Additionally, we have implemented scheduling, route optimization, and data analytics algorithms to ensure optimal performance and resource utilization.
+
+#### Testing
+We have written unit tests using the Unittest module to ensure high code coverage and reliability. This practice helps maintain the integrity of the application and facilitates easier debugging and maintenance.
+
+#### Continuous Integration and Deployment
+We have set up a continuous integration and continuous deployment (CI/CD) pipeline to automatically run tests and deploy the application. The deployment is handled using Docker and Nginx, ensuring a scalable and reliable production environment.
 
 ## Running the Application Locally
-1. Pull the docker image from docker hub
+1. Pull the docker image from Docker Hub
    ```bash
    sudo docker pull niyonshutidavid/ecoapp
    ```
@@ -31,14 +64,14 @@ Eco clean solution is a web application that allows users to manage waste collec
    ```bash
    sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest
    ```
-## Accessing at the domain
-You can find the web application at https://www.davidniyonshuti.tech/
+3. Accessing the Application
+   You can find the web application at [Eco Clean Solutions](https://www.davidniyonshuti.tech/)
 
 ## Authors
 Contributors to the development of the web application:
-- David Niyonshuti
-- Daniel Iryivuze
-- Vanessa Uwonkunda
-- Ian Ganza
-- Placide Kabisa Manzi
 
+- [David Niyonshuti](mailto:d.niyonshuti@alustudent.com)
+- [Daniel Iryivuze](mailto:d.iryivuze@alustudent.com)
+- [Vanessa Uwonkunda](mailto:v.uwonkunda@alustudent.com)
+- [Ian Ganza](mailto:i.ganza@alustudent.com)
+- [Placide Kabisa Manzi](mailto:p.imanzi@alustudent.com)
