@@ -24,6 +24,7 @@ class Users(db.Model, UserMixin):
     street = db.Column(db.String(20), nullable=True)
     password = db.Column(db.String(200), nullable=False)  # Increased length for hashed password
     cell = db.Column(db.String(20), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
     orders = db.relationship('Order', backref='user', lazy=True)
 
     def __repr__(self):
