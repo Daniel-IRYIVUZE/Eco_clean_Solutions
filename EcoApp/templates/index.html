@@ -11,109 +11,46 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="/EcoApp/static/images/logo.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/1.2.5/spinkit.min.css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
   </head>
   <body>
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
-    messages %} {% for category, message in messages %}
-    <div class="alert alert-{{ category }}">{{ message }}</div>
-    {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
     <header>
       <div class="logo">
         <img src="../static/images/logo1.png" alt="" />
-        <h1>ECO CLEAN SOLUTIONS</h1>
+        
       </div>
 
       <nav>
         <ul>
-          {% if current_user.is_authenticated %}
-          <li><a href="{{ url_for('index') }}">HOME</a></li>
-          <li><a href="{{ url_for('user_dash') }}">DASHBOARD</a></li>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">REGISTER</a></li>
+          <li><a href="#">DASHBOARD</a></li>
           <li><a href="#">CONTACT US</a></li>
-          <li><a href="{{ url_for('logout') }}">LOG OUT</a></li>
-          {% else %}
-          <li><a href="{{ url_for('index') }}">HOME</a></li>
-          <li><a href="{{ url_for('user_dash') }} ">DASHBOARD</a></li>
-          <li><a href="#">CONTACT US</a></li>
-          <li><a href="{{ url_for('register') }}">REGISTER</a></li>
-          <li><a href="{{ url_for('login') }}">LOG IN</a></li>
-          {% endif %}
+          <li><a href="#">LOG IN</a></li>
         </ul>
       </nav>
     </header>
-
-    <section class="hero">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="../static/images/trash3.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="../static/images/trash1.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-
-          <div class="carousel-item">
-            <img
-              src="../static/images/trash2.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+   <div id="hero" class="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>ECO CLEAN SOLUTION</h1>
+        <h3>We are <span class="typed" data-typed-items="Waste Management"></span></h3>
+        <p>ECO CLEAN SOLUTION</p>
       </div>
-    </section>
-
+    </div>
+  </div>
+  
     <section class="services">
       <h2>Waste Services</h2>
       <div class="service-list">
@@ -123,12 +60,8 @@
           />
           <div class="description">
             <h3>Dumpster Rental</h3>
-            <p>
-              We provide large metal bins for temporary waste and debris
-              collection, ensuring efficient handling and disposal. Count on our
-              reliable service to keep your environment clean and organized,
-              catering to both short-term projects and ongoing needs.
-            </p>
+            <p>We supply durable metal bins for temporary waste collection, ensuring efficient disposal. Trust our reliable service for clean, organized environments, perfect for short-term projects or ongoing needs.</p>
+          <button>BOOK NOW</button>
           </div>
         </div>
         <div class="service">
@@ -137,14 +70,8 @@
           />
           <div class="description">
             <h3>Garbage Pickup</h3>
-            <p>
-              We specialize in garbage collection and disposal, maintaining
-              clean surroundings with dedicated professionalism. Our reliable
-              service caters to residential and commercial needs, emphasizing
-              environmental responsibility and customer satisfaction. Trust us
-              for clean, sustainable solutions and peace of mind with every
-              pickup
-            </p>
+            <p>We specialize in garbage collection and disposal, ensuring clean surroundings with professionalism and efficiency. Our reliable service meets diverse residential and commercial needs effectively.</p>
+            <button>BOOK NOW</button>
           </div>
         </div>
         <div class="service">
@@ -153,13 +80,8 @@
           />
           <div class="description">
             <h3>Residential Recycling</h3>
-            <p>
-              We provide a specialized program for residential recyclable
-              material collection, ensuring efficient gathering and recycling of
-              paper, plastics, glass, and metals. Trust us to manage your
-              recyclables with care, promoting environmental sustainability for
-              a cleaner, greener community.
-            </p>
+            <p>We offer a specialized program for residential recyclable collection, efficiently gathering and recycling paper, plastics, glass, and metals, ensuring a cleaner, greener community.</p>
+            <button>BOOK NOW</button>
           </div>
         </div>
 
@@ -169,14 +91,8 @@
           />
           <div class="description">
             <h3>Junk Removal</h3>
-            <p>
-              We offer a service for collecting and disposing of unwanted items
-              from homes or businesses, including outdated appliances,
-              furniture, old clothes, and general debris. Our reliable team
-              ensures efficient removal, promoting cleanliness and space
-              management. Trust us to handle your disposal needs with
-              professionalism and care.
-            </p>
+            <p>We provide removal services for unwanted items from homes or businesses, including appliances, furniture, clothes, and debris, ensuring quick, efficient, and eco-friendly disposal with exceptional professionalism and Maintanance.</p>
+            <button>BOOK NOW</button>
           </div>
         </div>
       </div>
@@ -187,150 +103,68 @@
           <div class="col-md-6">
             <div class="card">
               <h2>MISSION</h2>
-              <p>
-                We are dedicated to transforming waste management through
-                innovative, sustainable practices that protect our environment
-                and enhance community well-being. We aim to provide
-                comprehensive waste management solutions that reduce waste,
-                promote recycling, and support a circular economy. Our
-                commitment is to educate and engage communities, businesses, and
-                governments in adopting responsible waste management practices
-                that lead to a cleaner, healthier planet.
-              </p>
+              <p>We transform waste management with sustainable practices, enhancing community well-being. Our goal is to provide comprehensive solutions that promote recycling, support a circular economy, and engage communities in responsible waste management for a healthier, more sustainable planet.</p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card">
               <h2>VISION</h2>
-              <p>
-                We envision a world where waste is minimized, resources are
-                maximized, and communities thrive in a clean and healthy
-                environment. Our vision is to be a global leader in sustainable
-                waste management, driving innovation and fostering collaboration
-                to create zero-waste communities. We strive for a future where
-                every individual and organization takes responsibility for their
-                environmental impact, contributing to a sustainable, waste-free
-                world.
-              </p>
+              <p>We envision a world with minimal waste, maximized resources, and thriving communities. Our mission is to lead in sustainable waste management, creating zero-waste communities through innovation, collaboration, and a commitment to environmental stewardship.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section>
-      <div class="container form-container">
-        <h2 class="text-center">Contact Us</h2>
-        <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="contact">Contact Number</label>
-            <input
-              type="text"
-              class="form-control"
-              id="contact"
-              placeholder="Enter your contact number"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="linkedin">LinkedIn</label>
-            <input
-              type="url"
-              class="form-control"
-              id="linkedin"
-              placeholder="Enter LinkedIn profile URL"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="instagram">Instagram</label>
-            <input
-              type="url"
-              class="form-control"
-              id="instagram"
-              placeholder="Enter Instagram profile URL"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-
-        <h2 class="text-center">Our Location</h2>
-        <div id="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5050470011747!2d30.05741827507267!3d-1.9511718980311334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5a86d814c61%3A0x7d3b83e12b1c11a9!2sNorrsken%20House%20Kigali!5e0!3m2!1sen!2srw!4v1718736783706!5m2!1sen!2srw"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
+    
     <section>
       <div class="container form-container">
         <h2 class="text-center">Support Form</h2>
         <form>
           <div class="form-group">
-            <label for="name">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div class="form-group">
             <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Enter your email"
-              required
-            />
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea
-              class="form-control message-box"
-              id="message"
-              placeholder="Enter your message"
-              maxlength="300"
-              required
-            ></textarea>
+            <textarea class="form-control message-box" id="message" placeholder="Enter your message" maxlength="300" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send</button>
         </form>
       </div>
     </section>
-
-    <footer>
-      <p>&copy; 2024 ECO CLEAN SOLUTION. All rights reserved.</p>
+    <footer class="footer mt-5">
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-6 contact">
+            <h2>Contact Us</h2>
+            <ul class="info-list">
+              <li><i class="fas fa-phone"></i> +250 782 842 139</li>
+              <li><i class="fas fa-envelope"></i> info@ecocleansolution.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> Norrsken House Kigali, 1 KN 78st, Kigali</li>
+            </ul>
+            <div class="social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col-md-6 location">
+            <h2>Our Location</h2>
+            <div class="map">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5050470011747!2d30.05741827507267!3d-1.9511718980311334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5a86d814c61%3A0x7d3b83e12b1c11a9!2sNorrsken%20House%20Kigali!5e0!3m2!1sen!2srw!4v1718736783706!5m2!1sen!2srw" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center">&copy; 2024 ECO CLEAN SOLUTION. All rights reserved.</p>
     </footer>
+  
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

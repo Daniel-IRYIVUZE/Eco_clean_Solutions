@@ -19,8 +19,8 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.niyonshutidavid }}
-        password: ${{ secrets.MyAluAccount123? }}
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
       run: |
@@ -32,84 +32,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        mkdir -p /home/runner/.ssh/
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     - name: Deploy to web-01
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@54.82.98.206 'docker pull niyonshutidavid/ecoapp:latest && docker stop $(docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.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 }}
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.98.206 'sudo docker pull niyonshutidavid/ecoapp:latest && sudo docker run -d -p 3000:3000 niyonshutidavid/ecoapp:latest'
 
-    - name: Deploy to web-02
+    - name: Deploy to web-02 
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@54.82.23.160 'docker pull niyonshutidavid/ecoapp:latest && docker stop $(docker ps -q --filter ancestor=niyonshutidavid/ecoapp:latest) && docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
-NhAAAAAwEAAQAAAYEAyK783yweDUk0kQwXU/9UpmotYOMhWORixWiwR8RpuasXHIBzYToV
-WM8GZAqqTcXAm8oeYoWw6mmwn1Ls38jGxwqiL6OjZTtUxai5/Pz5clFToLXhDOTkOpQmUp
-LHzeWcpv7K1Ppy280aCyXeQeKY+wIaWA1E5YacUnN7SrHRH0oWNWXbNYjA5odHpjOjsWiG
-MnSrQ93VjxpI3Xqs6sZ4jx7I4tXrA3oXqDBDNjm7FLrkuAXTNk9yy03oPZolaRBUhZhfnx
-PeKlBogD1Ymkx8VlPcuJXDFgl6xO2awUPd6b3r/lhI0KkZBdqPMQeGqmvnw+QqqvxZn3wV
-D23mu4uE+or07nHfeKj/QrUImkQTanWGOoCg7e46XityokZp5jhH2F8OrL8EDojH9VxQv6
-fNpaKenyb2EyitczGN1zrD6DHmYf4U6/uRPUCM5SoYX/iQxjqTEVAVqhdo+TQYqe2iCS2v
-383nmrN14Abbpsmr36YJbQw3EbxFVFeZVizsX0PbAAAFkIrZrUyK2a1MAAAAB3NzaC1yc2
-EAAAGBAMiu/N8sHg1JNJEMF1P/VKZqLWDjIVjkYsVosEfEabmrFxyAc2E6FVjPBmQKqk3F
-wJvKHmKFsOppsJ9S7N/IxscKoi+jo2U7VMWoufz8+XJRU6C14Qzk5DqUJlKSx83lnKb+yt
-T6ctvNGgsl3kHimPsCGlgNROWGnFJze0qx0R9KFjVl2zWIwOaHR6Yzo7FohjJ0q0Pd1Y8a
-SN16rOrGeI8eyOLV6wN6F6gwQzY5uxS65LgF0zZPcstN6D2aJWkQVIWYX58T3ipQaIA9WJ
-pMfFZT3LiVwxYJesTtmsFD3em96/5YSNCpGQXajzEHhqpr58PkKqr8WZ98FQ9t5ruLhPqK
-9O5x33io/0K1CJpEE2p1hjqAoO3uOl4rcqJGaeY4R9hfDqy/BA6Ix/VcUL+nzaWinp8m9h
-MorXMxjdc6w+gx5mH+FOv7kT1AjOUqGF/4kMY6kxFQFaoXaPk0GKntogktr9/N55qzdeAG
-26bJq9+mCW0MNxG8RVRXmVYs7F9D2wAAAAMBAAEAAAGASYDuVb+O8kbR3h6TnMx0cM+K92
-W5nRlpo+yIRIEISF0GBgZ2PDJOB00shg/x+LJpraYGIwfcmL9FVdXFtOGRDO40IUbKXhWx
-IwR9us/dfaWT/9UeLN7ZSStiLfRdAmkLS48fM4rX7vHcjCC+m1sntSg8Bew2Q+td7kUl72
-HZuqAkKkK4W49POCBsec+IMT6biHd7E0x5IAT8k0KPex5eoe0gnxTDE27wo0WqGH5kq18Y
-zt4zUj0fSp+qZIXFFgpIhI6FMIpfTKvl8dHxiHIJf77C/btoJvrkrBUEQk3hshp+qb7G7i
-EdFB4Mh+nMxoSdDEyFg5vS9RsOxVQUx8o6b15tb3++z1Aho/pywUUUBf23i9F8sZRWAPVO
-WXhP1ajL8uXMwLGWmKfSsEKa52SUMWgCqhyyHzKJGbeHv5mD33/oyDRQ8HVr+Ec5nHM8GU
-BKs3C2TM/WMdcN8p1AQ+EF8yyKcSjPAC8RQoYnSlC9j00RRJ4KiAufjhWPNq9wg/uBAAAA
-wQDSiPoqLgDQZzKBuoh0xC/HuqO0e8W5KAUzuZix0kTvZizV2l9RomZjWHgYOzAE7tnrdT
-M0SznaUjEQNTFzRvFfnzrpYq+aKd3zdhGoYricGe2Q9w9Zn5HcFDVZbUiwLoVl9u/ulUgr
-rzrk7ghCEieqqpg6qcp+pbBttZlzmhqkRd60puG1sdgttl1sAs2v84Nks+JIvqwUWJBLNf
-Gingcb0+SaZ9gQmvTba4dwV/6oPVFFsDXNgngXWsVXfieD1L8AAADBAPI3SGCfxdPCF6eg
-WjtyW4TsoUYQWyDOyR+SuQzkySgsxXA5/JugfWZ0KrDX51WVu9NruIOz9b9DmFOq0dGW4o
-qGWIYoJowFPKGvw5TQzMWgnC79xvrzgGy+Aek8begvr2QaFkjWUZZ1OUJTZAQf/lZa2If/
-XcJs42b3sQK3vy3jfF9PbEZp1AmhAgBFBk2/O04D7zFmC7Ped5TtX+ODg6sS1GILiJwQYe
-Hf3sIZ8WIZOLeK0+0lPDc2efoPYtbdSwAAAMEA1BqkKJLloEe6n58MVl4Nr/9/ZhTkioFX
-hGdglNK7K9R1jt7w5/KEyWLjOKnrhJm6SNgnlUmZkwcskm/qbSTxrpcjUapzGcjoFTlpwR
-GdS5ysLBeOn1AinabIOwl1YWGGB0xaprtFtLZlXIHqiRzICVEHuIrnaEZNOSPKwHLFUyhm
-xGM5d7pNwbsUmkYzVyhbGn8kj/KJ7C8iLSss97cZgJcFqdWmx7ZNWliJ9qVSJQvOg/E/7T
-Hk4Ks9hHxV1emxAAAAFXJvb3RARGF2aWQtTml5b25zaHV0aQECAwQF }}
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@54.82.23.160 'sudo docker pull niyonshutidavid/ecoapp:latest && sudo docker run -d -p 3000:3000 niyonshutidavid/ecoapp:latest'
