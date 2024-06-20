@@ -1,8 +1,9 @@
-from flask import render_template, flash, url_for, redirect, request, abort
+from flask import render_template, flash, url_for, redirect, request, abort, jsonify
 from EcoApp import app, db, bcrypt
-from EcoApp.form import RegisterForm, LoginForm,ServiceForm
-from EcoApp.model import Users,Services, Order, OrderServices
+from EcoApp.form import RegisterForm, LoginForm, ServiceForm, RangeTime
+from EcoApp.model import Users, Services, Order, OrderServices
 from flask_login import login_user, current_user, logout_user, login_required
+from datetime import datetime
 
 @app.route('/')
 @app.route('/home')
@@ -63,18 +64,20 @@ def user_dash():
 @app.route("/admin")
 @login_required
 def admin():
-    users = Users.query.filter(Users.email != "admin@gmail.com").all()
-    orders= Order.query.filter_by(status="pending").all()
-    ordersNumber= len(orders)
-    usersNumber= len(users)
     if not current_user.is_authenticated or not current_user.is_admin:
         abort(403)
-    return render_template("admin-dash.html", number=usersNumber)
+    
+    users = Users.query.filter(Users.email != "admin@gmail.com").all()
+    ordersReq = Order.query.filter_by(status="Pending").all()  
+    
+    usersNumber = len(users)
+    ordersReqNumber = len(ordersReq)
+    
+    return render_template("admin-dash.html", number=usersNumber, reqnumber=ordersReqNumber, ordersReq=ordersReq)
 
 @app.errorhandler(403)
 def forbidden(error):
     return render_template('403.html'), 403
-
 
 @app.route("/admin/customers")
 @login_required
@@ -84,10 +87,33 @@ def customers():
     users = Users.query.filter(Users.email != "admin@gmail.com").all()
     return render_template("customers.html", users=users)
 
-@app.route("/admin/report")
+@app.route("/admin/report", methods=["GET", "POST"])
 @login_required
 def report():
-    return render_template("adminrepo.html")
+    form = RangeTime()
+    if not current_user.is_authenticated or not current_user.is_admin:
+        abort(403)
+
+    # Initialize the form with current dates only on GET request
+    if request.method == 'GET':
+        form.datefrom.data = datetime.now().date()  
+        form.dateto.data = datetime.now().date() 
+
+    if form.validate_on_submit():
+       
+        date_from = datetime.strptime(form.datefrom.data, "%Y-%m-%d").date()
+        date_to = datetime.strptime(form.dateto.data, "%Y-%m-%d").date()
+
+        # Fetch orders based on the selected date range
+        ordersReq = Order.query.filter(Order.status == "Completed", 
+                                       Order.scheduled_date.between(date_from, date_to)).all()
+    else:
+        ordersReq = Order.query.filter_by(status="Completed").all()
+
+    usersNumber = len(Users.query.filter(Users.email != "admin@gmail.com").all())
+    ordersReqNumber = len(ordersReq)
+
+    return render_template("adminrepo.html", ordersReq=ordersReq, number=usersNumber, reqnumber=ordersReqNumber, form=form)
 
 @app.route("/book/<service_name>", methods=["GET", "POST"])
 @login_required
@@ -131,3 +157,16 @@ def book(service_name):
     }.get(name, "9am to 5pm")
 
     return render_template("booking.html", form=form, time=time)
+
+@app.route('/update-order-status/<int:order_id>', methods=['PUT'])
+def update_order_status(order_id):
+    new_status = request.json.get('status')
+
+    # Perform database update logic here
+    order = Order.query.get(order_id)
+    if order:
+        order.status = new_status
+        db.session.commit()
+        return jsonify({'message': 'Status updated successfully'}), 200
+    else:
+        return jsonify({'message': 'Order not found'}), 404

@@ -1,9 +1,9 @@
 /* =========== Google Fonts ============ */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 /* =============== Globals ============== */
 * {
-  font-family: "poppins", sans-serif;
+  font-family: 'poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -119,7 +119,7 @@ h6 {
   text-align: left;
 }
 
-h6 input[type="date"] {
+h6 input[type='date'] {
   padding: 5px;
   margin: 0 10px;
   border: 0;
@@ -130,7 +130,7 @@ h6 input[type="date"] {
   box-sizing: border-box;
 }
 
-h6 button[type="submit"] {
+h6 .button[type='submit'] {
   padding: 6px 12px;
   background-color: #078a0e;
   color: white;
@@ -140,12 +140,12 @@ h6 button[type="submit"] {
   cursor: pointer;
 }
 
-h6 button[type="submit"]:hover {
+.button[type='submit']:hover {
   background-color: #078a0e;
 }
 
-h6 input[type="date"]:focus,
-h6 button[type="submit"]:focus {
+h6 input[type='date']:focus,
+.button[type='submit']:focus {
   outline: none;
   border-color: #078a0e;
 }
@@ -175,7 +175,7 @@ h6 button[type="submit"]:focus {
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: -50px;
@@ -188,7 +188,7 @@ h6 button[type="submit"]:focus {
 }
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   bottom: -50px;
@@ -207,7 +207,7 @@ h6 button[type="submit"]:focus {
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: -50px;
@@ -220,7 +220,7 @@ h6 button[type="submit"]:focus {
 }
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   bottom: -50px;
@@ -250,7 +250,7 @@ h6 button[type="submit"]:focus {
   display: flex;
   gap: 2px;
 }
-.button-container input[type="button"] {
+.button-container input[type='button'] {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -258,18 +258,18 @@ h6 button[type="submit"]:focus {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.button-container input[type="button"]:nth-child(1) {
+.button-container input[type='button']:nth-child(1) {
   background-color: #4caf50; /* Green */
   color: white;
 }
-.button-container input[type="button"]:nth-child(1):hover {
+.button-container input[type='button']:nth-child(1):hover {
   background-color: #45a049;
 }
-.button-container input[type="button"]:nth-child(2) {
+.button-container input[type='button']:nth-child(2) {
   background-color: #f44336; /* Red */
   color: white;
 }
-.button-container input[type="button"]:nth-child(2):hover {
+.button-container input[type='button']:nth-child(2):hover {
   background-color: #da190b;
 }
 @media (max-width: 600px) {
@@ -277,7 +277,7 @@ h6 button[type="submit"]:focus {
     flex-direction: column;
     gap: 5px;
   }
-  .button-container input[type="button"] {
+  .button-container input[type='button'] {
     width: 100%;
     box-sizing: border-box;
   }
@@ -391,8 +391,8 @@ h6 button[type="submit"]:focus {
   border-radius: 5px;
 }
 
-.form-group input[type="email"],
-.form-group input[type="tel"] {
+.form-group input[type='email'],
+.form-group input[type='tel'] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;

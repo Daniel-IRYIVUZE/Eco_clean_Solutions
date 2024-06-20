@@ -84,51 +84,37 @@
                     <div class="cardHeader">
                         <h2>SERVICES DELIVERED REPORT</h2>
                     </div>
-                    <h6>From: <input type="date"> To: <input type="date"> <button type="submit">Check</button></h6>
+                    <form action="{{ url_for('report') }}" method="post">
+                        <h6>From: {{ form.datefrom }} To: {{ form.datefrom }} 
+                            {{ form.submit(class="button")}}
+                        </h6>
+                    </form>
+                    
                     <table class="report" id="orderTable">
                         <thead>
                             <tr>
                                 <th>Order Id</th>
                                 <th>Customer name</th>
-                                <th>Service Nam</th>
+                                <th>Service Name</th>
                                 <th>Status</th>
-                                <th>Email</th>
+                                <th> Booked Date</th>
+                                <th>Scheduled Date</th>
                                 <th>Location</th>
                             </tr>
                         </thead>
-
                         <tbody>
+                            {% for order in ordersReq %}
                             <tr>
-                                <td >Placide Imanzi </td>
-                            <td>Junky Removal</td>
-                            <td>17/06/2024</td>
-                            <td>Completed</td>
-                            <td>+250788202020</td>
-                            <td>Impakanizi village</td>   
+                            <td > {{ order.id }} </td>
+                            <td>{{ order.user.first_name }} {{ order.user.last_name }}</td>
+                            <td>{{ order.order_services[0].service.service_name }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>{{ order.timestamp }}</td>
+                            <td>{{ order.scheduled_date }}</td>   
+                            <td>{{ order.user.sector }}</td>  
+
                             </tr>
-                            <tr>
-                                <td >Ian Ganza</td>
-                               <td>Residential Recyling</td>
-                               <td>17/06/2024</td>
-                               <td>Completed</td>
-                               <td>+250788202020</td>
-                               <td>Impakanizi village</td>
-                                <tr>
-                                <td >David Niyonshuti</td>
-                            <td>Dumpster Rental</td>
-                            <td>17/06/2024</td>
-                            <td>Completed</td>
-                            <td>+250788202020</td>
-                            <td>Impakanizi village</td>   
-                            </tr>
-                            <tr>
-                                <td >Uwonkunda Vanessa</td>
-                            <td>Secure Distruction</td>
-                            <td>17/06/2024</td>
-                            <td>Completed</td>
-                            <td>+250788202020</td>
-                            <td>Impakanizi village</td>   
-                            </tr>
+                           {% endfor %}
 
                         </tbody>
                     </table>

@@ -1,87 +1,90 @@
 // add hovered class to selected list item
-let list = document.querySelectorAll(".navigation li");
+let list = document.querySelectorAll('.navigation li');
 
 function activeLink() {
-    list.forEach((item) => {
-        item.classList.remove("hovered");
-    });
-    this.classList.add("hovered");
+  list.forEach((item) => {
+    item.classList.remove('hovered');
+  });
+  this.classList.add('hovered');
 }
 
-list.forEach((item) => item.addEventListener("mouseover", activeLink));
+list.forEach((item) => item.addEventListener('mouseover', activeLink));
 
 // Menu Toggle
-let toggle = document.querySelector(".toggle");
-let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
+let toggle = document.querySelector('.toggle');
+let navigation = document.querySelector('.navigation');
+let main = document.querySelector('.main');
 
 toggle.onclick = function () {
-    navigation.classList.toggle("active");
-    main.classList.toggle("active");
+  navigation.classList.toggle('active');
+  main.classList.toggle('active');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        counter.innerText = '0';
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach((counter) => {
+    counter.innerText = '0';
 
-        const updateCounter = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
 
-            const increment = target / 200; // Adjust this value for speed
+      const increment = target / 200; // Adjust this value for speed
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCounter, 10);
-            } else {
-                counter.innerText = target;
-            }
-        };
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCounter, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
 
-        updateCounter();
-    });
+    updateCounter();
+  });
 });
 function updateStatus(selectElement) {
-    const statusCell = selectElement.parentElement.previousElementSibling;
-    const statusValue = selectElement.value;
+  const statusCell = selectElement.parentElement.previousElementSibling;
+  const statusValue = selectElement.value;
 
-    statusCell.textContent = statusValue;
+  // Retrieve orderId from data attribute
+  const orderId = selectElement.parentElement.dataset.orderId;
 
-    switch(statusValue) {
-        case "Completed":
-            statusCell.style.color = "green";
-            break;
-        case "Pending":
-            statusCell.style.color = "orange";
-            break;
-        case "Declined":
-            statusCell.style.color = "red";
-            break;
-        default:
-            statusCell.style.backgroundColor = "";
-            statusCell.style.color = "black";
-            break;
-    }
-}
+  statusCell.textContent = statusValue;
 
-function deleteUser(userId) {
-    if (confirm("Are you sure you want to delete this user?")) {
-        fetch(`/delete-user/${userId}`, {
-            method: 'DELETE'
-        })
-        .then(response => {
-            if (response.ok) {
-                alert("User deleted successfully.");
-                // Optionally, remove the user row from the table
-                document.getElementById(`user-${userId}`).remove();
-            } else {
-                alert("Failed to delete user.");
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("Error deleting user.");
-        });
-    }
+  switch (statusValue) {
+    case 'Completed':
+      statusCell.style.color = 'green';
+      break;
+    case 'Pending':
+      statusCell.style.color = 'orange';
+      break;
+    case 'Declined':
+      statusCell.style.color = 'red';
+      break;
+    default:
+      statusCell.style.backgroundColor = '';
+      statusCell.style.color = 'black';
+      break;
+  }
+
+  fetch(`/update-order-status/${orderId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ status: statusValue }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Status updated successfully.');
+        // Optionally handle any UI or additional logic upon successful update
+      } else {
+        console.log('Failed to update status.');
+        // Handle error or retry logic if needed
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Error updating status.');
+    });
 }

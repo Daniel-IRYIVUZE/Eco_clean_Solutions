@@ -30,10 +30,15 @@ class LoginForm(FlaskForm):
 
 class ServiceForm(FlaskForm):
     serviceName = StringField('Service Name', validators=[DataRequired()])
-    price = IntegerField("Price", validators=[DataRequired()])  # Changed to IntegerField
+    price = IntegerField("Amount(RWF)", validators=[DataRequired()])  # Changed to IntegerField
     date = DateField("Service Date", validators=[DataRequired()])
     submit = SubmitField("Book Order")
 
     def validate_date(self, date):
         if date.data < datetime.now().date():
             raise ValidationError("Date invalid, please select a future date")
+
+class RangeTime(FlaskForm):
+    datefrom = DateField("From", validators=[DataRequired()])
+    dateto = DateField("To", validators=[DataRequired()])
+    submit= SubmitField("check")

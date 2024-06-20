@@ -1,183 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpg" type="jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/logo.jpg" type="jpg" />
     <title>Eco Clean Solution | Admin</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="../static/admin-dash.css">
-</head>
+    <link rel="stylesheet" href="../static/admin-dash.css" />
+  </head>
 
-<body>
+  <body>
     <!-- =============== Navigation ================ -->
     <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#dashboard">
-                        <img class="icon" src="../images/logo.png" alt="">
-                        <span class="topup">ECO CLEAN SOLUTIONS</span>
-                    </a>
-                </li>
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#dashboard">
+              <img class="icon" src="../images/logo.png" alt="" />
+              <span class="topup">ECO CLEAN SOLUTIONS</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="{{ url_for('admin') }}">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
+          <li>
+            <a href="{{ url_for('admin') }}">
+              <span class="icon">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="{{ url_for('admin' ) }}">
-                        <span class="icon">
-                            <ion-icon name="receipt-outline"></ion-icon>
-                        </span>
-                        <span class="title">Requests</span>
-                    </a>
-                </li>
+          <li>
+            <a href="{{ url_for('admin') }}">
+              <span class="icon">
+                <ion-icon name="receipt-outline"></ion-icon>
+              </span>
+              <span class="title">Requests</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="{{ url_for('customers') }}">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title">Customers</span>
-                    </a>
-                </li>
+          <li>
+            <a href="{{ url_for('customers') }}">
+              <span class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+              </span>
+              <span class="title">Customers</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="{{ url_for('report') }}">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Report</span>
-                    </a>
-                </li>
+          <li>
+            <a href="{{ url_for('report') }}">
+              <span class="icon">
+                <ion-icon name="reader-outline"></ion-icon>
+              </span>
+              <span class="title">Report</span>
+            </a>
+          </li>
 
-                <li>
-                    <a href="{{ url_for('logout') }}" class="logout">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Log Out</span>
-                    </a>
-                </li>
-            </ul>
+          <li>
+            <a href="{{ url_for('logout') }}" class="logout">
+              <span class="icon">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span>
+              <span class="title">Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ========================= Main ==================== -->
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
         </div>
 
-        <!-- ========================= Main ==================== -->
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
+        <!-- ======================= Cards ================== -->
+        <div class="cardBox" id="dashboard">
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="{{ number }}"></div>
+              <div class="cardName">Customers</div>
             </div>
-
-            <!-- ======================= Cards ================== -->
-            <div class="cardBox" id="dashboard">
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="{{ number }}"></div>
-                        <div class="cardName">Customers</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div>
-                        <div class="sign">+</div>
-                        <div class="counter" data-target="230">0</div>
-                        <div class="cardName">Daily Earning</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="wallet-outline"></ion-icon>
-                    </div>
-                </div>
+            <div class="iconBx">
+              <ion-icon name="people-outline"></ion-icon>
             </div>
+          </div>
 
-            <!-- ================ Order Details List ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader" id="recent">
-                        <h2>Recent Orders</h2>
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Client name</th>
-                                <th>Service</th>
-                                <th>Price</th>
-                                <th>Email</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Uwonkunda David Ian Placide</td>
-                                <td>Fire damage cleanup</td>
-                                <td>$120</td>
-                                <td>Paid</td>
-                                <td class="status">No option</td>
-                                <td>
-                                    <select class="status-select" onchange="updateStatus(this)">
-                                        <option value="No option">Choose status</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Declined">Declined</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+          <div class="card">
+            <div>
+              <div class="sign">+</div>
+              <div class="counter" data-target="230">0</div>
+              <div class="cardName">Daily Earning</div>
+            </div>
+            <div class="iconBx">
+              <ion-icon name="wallet-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================ Order Details List ================= -->
+        <div class="details">
+          <div class="recentOrders">
+            <div class="cardHeader" id="recent">
+              <h2>Recent Orders</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Client name</th>
+                  <th>Service</th>
+                  <th>Price</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in ordersReq %}
+                <tr>
+                  <td>
+                    {{ order.user.first_name }} {{ order.user.last_name }}
+                  </td>
+                  <td>{{ order.order_services[0].service.service_name }}</td>
+                  <td>{{ order.order_services[0].service.price }}</td>
+                  <td>{{ order.user.email }}</td>
+                  <td class="status">{{ order.status }}</td>
+                  <td data-order-id="{{ order.id }}">
+                    <select class="status-select" onchange="updateStatus(this)">
+                      <option value="No option">Choose status</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Declined">Declined</option>
+                    </select>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- =========== Scripts =========  -->
+    <script>
+      function updateStatus(selectElement) {
+        const statusCell = selectElement.parentElement.previousElementSibling;
+        const statusValue = selectElement.value;
+
+        // Retrieve orderId from data attribute
+        const orderId = selectElement.dataset.orderId;
+
+        // Log orderId and statusValue for debugging
+        console.log(`Updating order ${orderId} to status: ${statusValue}`);
+
+        // Update UI
+        statusCell.textContent = statusValue;
+
+        // Update UI styling based on statusValue
+        switch (statusValue) {
+          case 'Completed':
+            statusCell.style.color = 'green';
+            break;
+          case 'Pending':
+            statusCell.style.color = 'orange';
+            break;
+          case 'Declined':
+            statusCell.style.color = 'red';
+            break;
+          default:
+            statusCell.style.backgroundColor = '';
+            statusCell.style.color = 'black';
+            break;
+        }
+
+        // Update backend via fetch
+        fetch(`/update-order-status/${orderId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ status: statusValue }),
+        })
+          .then((response) => {
+            console.log(`Response status: ${response.status}`); // Log the status code
+            return response.json().then((data) => ({
+              status: response.status,
+              body: data,
+            }));
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              console.log('Status updated successfully.');
+              // Optionally handle any UI or additional logic upon successful update
+            } else {
+              console.log('Failed to update status.');
+              console.log(`Error message: ${response.body.message}`); // Log the error message
+              alert(`Failed to update status: ${response.body.message}`);
+              // Handle error or retry logic if needed
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            alert('Error updating status.');
+          });
+      }
+    </script>
+
     <script src="../static/admin-dash.js"></script>
 
     <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
