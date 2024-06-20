@@ -1,5 +1,3 @@
-<img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/assets/144002340/67b875b1-bd14-46c2-8bc9-8bfde43f6c03" alt="Eco Clean Solutions Logo" width="300" height="auto">
-
 # Eco Clean Solutions
 
 ## Project Overview
@@ -76,11 +74,23 @@ We have set up a continuous integration and continuous deployment (CI/CD) pipeli
 3. Accessing the Application
   You can find the web application at https://www.davidniyonshuti.tech/
 
+## References
+
+- **Deployed website URL**: [click here](https://www.davidniyonshuti.tech/)
+- **Presentation slides**: [click here](https://www.canva.com/design/DAGIsPKIfEI/WUFDw1yQ6J9gcOHma0Fhog/edit?utm_content=DAGIsPKIfEI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- **Documentation**: [click here](https://docs.google.com/document/d/1HV_0bmPIZpB8Y3i-pi4Ok5iEeouA9PRS-_-WrtYlIhg/edit?usp=sharing)
+ 
 ## Authors
 Contributors to the development of the web application:
 
-- [David Niyonshuti](mailto:d.niyonshuti@alustudent.com)
+- [David Niyonshuti](mailto:d.niyonshut@alustudent.com)
 - [Daniel Iryivuze](mailto:d.iryivuze@alustudent.com)
 - [Vanessa Uwonkunda](mailto:v.uwonkunda@alustudent.com)
 - [Ian Ganza](mailto:i.ganza@alustudent.com)
 - [Placide Kabisa Manzi](mailto:p.imanzi@alustudent.com)
+
+## Interface
+<p>
+    <img src="https://github.com/Daniel-IRYIVUZE/Eco_clean_Solutions/blob/main/EcoApp/static/images/Macbook-Air.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
+    <img src="EcoApp/static/images/iPhone-13-PRO.png" alt="Eco Clean Solutions Logo" width="300" height="auto">
+</p>
