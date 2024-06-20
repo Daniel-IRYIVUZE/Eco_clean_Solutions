@@ -435,7 +435,7 @@ p {
   color: #b8a07e;
 }
 
-.navbar-mobile .dropdown>.dropdown-active {
+.navbar-mobile .dropdown .dropdown-active {
   display: block;
 }
 
@@ -456,14 +456,14 @@ p {
   width: 100%;
 }
 
-hero-content h1 {
+.hero-content h1 {
   font-size: 80px;
   font-weight: 1000;
   margin-bottom: 20px;
   margin-top: 10%;
   text-transform: uppercase;
   color: #fff;
-}.
+}
 
 .hero-content h3 {
   font-size: 24px;
@@ -1691,14 +1691,14 @@ nav ul li a:active {
   width: 100%;
 }
 
-hero-content h1 {
+.hero-content h1 {
   font-size: 80px;
   font-weight: 1000;
   margin-bottom: 20px;
   margin-top: 10%;
   text-transform: uppercase;
   color: #fff;
-}.
+}
 
 .hero-content h3 {
   font-size: 24px;
