@@ -1,6 +1,6 @@
 from flask import render_template, flash, url_for, redirect, request, abort, jsonify
 from EcoApp import app, db, bcrypt
-from EcoApp.form import RegisterForm, LoginForm, ServiceForm, RangeTime
+from EcoApp.form import RegisterForm, LoginForm, ServiceForm, RangeTime,ProfileForm
 from EcoApp.model import Users, Services, Order, OrderServices
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
@@ -42,10 +42,13 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
+    next_page= request.args.get("next")  
     if form.validate_on_submit():
         user = Users.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
+            if next_page:    
+                return redirect(next_page)
             return redirect(url_for('index'))
         else:
             flash("Log in unsuccessful. Check your email and password", 'warning')
@@ -56,10 +59,6 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route("/dashboard")
-@login_required
-def user_dash():
-    return render_template("user-dash.html")
 
 @app.route("/admin")
 @login_required
@@ -174,3 +173,61 @@ def update_order_status(order_id):
         return jsonify({'message': 'Status updated successfully'}), 200
     else:
         return jsonify({'message': 'Order not found'}), 404
+
+
+@app.route("/dashboard")
+@login_required
+def user_dash():
+    declined_orders = Order.query.filter(Order.user_id == current_user.id, Order.status == "Declined").all()
+    declined_nber= len(declined_orders)
+     
+    completed_orders = Order.query.filter(Order.user_id == current_user.id, Order.status == "Completed").all()
+    completed_nber=len(completed_orders)
+
+    current_orders= current_user.orders
+
+    return render_template("user-dash.html", declined_nber=declined_nber, completed_nber=completed_nber, current_orders= current_orders)
+   
+
+@app.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    form = ProfileForm()
+    if form.validate_on_submit():
+        # Verify the current password
+        if not bcrypt.check_password_hash(current_user.password, form.current_password.data):
+            flash("Current password is incorrect", "danger")
+            return redirect(url_for("settings"))
+        
+        # Update user details
+        current_user.first_name = form.firstname.data
+        current_user.last_name = form.lastname.data
+        current_user.email = form.email.data
+        current_user.district = form.district.data
+        current_user.village = form.village.data
+        current_user.sector = form.sector.data
+        current_user.cell = form.cell.data
+        current_user.street = form.street.data
+        
+        # Update password if a new one is provided
+        if form.password.data:
+            current_user.password = bcrypt.generate_password_hash(form.password.data)
+        
+        db.session.commit()
+        flash("Your Profile info was successfully updated", "success")
+        return redirect(url_for("settings"))
+    
+    elif request.method == "GET":
+        form.firstname.data = current_user.first_name
+        form.lastname.data = current_user.last_name
+        form.email.data = current_user.email
+        form.district.data = current_user.district
+        form.village.data = current_user.village
+        form.sector.data = current_user.sector
+        form.cell.data = current_user.cell
+        form.street.data = current_user.street
+    return render_template('settings.html', form=form)
+
+
+
+

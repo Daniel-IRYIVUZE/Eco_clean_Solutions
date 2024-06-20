@@ -42,3 +42,18 @@ class RangeTime(FlaskForm):
     datefrom = DateField("From", validators=[DataRequired()])
     dateto = DateField("To", validators=[DataRequired()])
     submit= SubmitField("check")
+
+
+class ProfileForm(FlaskForm):
+    firstname = StringField('First Name', validators=[DataRequired(), Length(min=2, max=20)])
+    lastname = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=20)])
+    district = StringField('District', validators=[DataRequired(), Length(min=2, max=20)])
+    sector = StringField('Sector', validators=[DataRequired(), Length(min=2, max=20)])
+    cell = StringField('Cell', validators=[DataRequired(), Length(min=2, max=20)])
+    village = StringField('Village', validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    street = StringField('Street', validators=[Length(max=20)])
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    password = PasswordField('New Password', validators=[Length(max=200)])
+    confirm_password = PasswordField('Confirm Password', validators=[EqualTo('password')])
+    submit = SubmitField('SAVE')

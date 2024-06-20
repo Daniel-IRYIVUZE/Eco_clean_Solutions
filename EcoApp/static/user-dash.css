@@ -1,9 +1,9 @@
 /* =========== Google Fonts ============ */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 /* =============== Globals ============== */
 * {
-  font-family: "poppins", sans-serif;
+  font-family: 'poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 :root {
   --blue: #044401;
   --gray: #f5f5f5;
-  --side:rgb(8, 46, 4);
+  --side: rgb(8, 46, 4);
   --black1: #222;
   --black2: #6dfca4;
   --white: #ffffff;
@@ -102,7 +102,7 @@ body {
   min-width: 60px;
   height: 60px;
   line-height: 75px;
-  text-align:center;
+  text-align: center;
 }
 
 .navigation ul li a .icon ion-icon {
@@ -129,7 +129,7 @@ body {
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: -50px;
@@ -142,7 +142,7 @@ body {
 }
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   bottom: -50px;
@@ -176,7 +176,6 @@ body {
   white-space: nowrap;
 }
 
-
 .logout {
   margin-top: auto;
 }
@@ -184,7 +183,7 @@ body {
 /* --------- curve outside ---------- */
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   top: -50px;
@@ -197,7 +196,7 @@ body {
 }
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 0;
   bottom: -50px;
@@ -228,7 +227,7 @@ body {
   height: 60px;
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   padding: 0 10px;
 }
 
@@ -237,8 +236,8 @@ body {
   width: 60px;
   height: 60px;
   display: flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   font-size: 2.5rem;
   cursor: pointer;
 }
@@ -253,7 +252,6 @@ body {
   position: relative;
   width: 100%;
 }
-
 
 .search label ion-icon {
   position: absolute;
@@ -348,146 +346,142 @@ body {
   color: var(--side);
 }
 
-
-
 /* ================== Order Details List ============== */
 
 .details {
-    
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    display: grid;
-    grid-gap: 30px;
-    border-bottom: 1px solid var(--grey);
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-gap: 30px;
+  border-bottom: 1px solid var(--grey);
 }
 
 .details .recentOrders {
-    position: relative;
-    display: grid;
-    background: var(--white);
-    padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 10px;
+  position: relative;
+  display: grid;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
 }
 
 .details .cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cardHeader h2 {
-    font-weight: 900;
-    color: var(--black);
-    font-weight: 600;
-    text-decoration: darkcyan;
-
+  font-weight: 900;
+  color: var(--black);
+  font-weight: 600;
+  text-decoration: darkcyan;
 }
 
 .cardHeader .btn {
-    padding: 10px 20px;
-    background: var(--side);
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 6px;
-    transition: background 0.3s;
-    cursor: pointer;
+  padding: 10px 20px;
+  background: var(--side);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+  transition: background 0.3s;
+  cursor: pointer;
 }
 
 .cardHeader .btn:hover {
-    background: #293541;
+  background: #293541;
 }
 
 .details table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .details table thead td {
-    font-weight: 600;
-    background-color: var(--side);
-    color: var(--white);
-    padding: 15px;
+  font-weight: 600;
+  background-color: var(--side);
+  color: var(--white);
+  padding: 15px;
 }
 
 .details .recentOrders table tr {
-    color: var(--black);
-    border-bottom: 1px solid var(--grey);
-    transition: background 0.3s, color 0.3s;
+  color: var(--black);
+  border-bottom: 1px solid var(--grey);
+  transition: background 0.3s, color 0.3s;
 }
 
 .details .recentOrders table tr:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .details .recentOrders table tbody tr:hover {
-    background: var(--grey);
-    color: var(--side);
-    font-size: 12px;
+  background: var(--grey);
+  color: var(--side);
+  font-size: 12px;
 }
 
 .details .recentOrders table tr td {
-    padding: 15px;
+  padding: 15px;
 }
 
 .details .recentOrders table tr td:last-child {
-    text-align:center;
+  text-align: center;
 }
 
 .details .recentOrders table tr td:nth-child(2) {
-    text-align:center;
+  text-align: center;
 }
 
 .details .recentOrders table tr td:nth-child(3) {
-    text-align:center;
+  text-align: center;
 }
 
 .status {
-    padding: 5px 10px;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    display: inline-block;
-    text-align:center;
+  padding: 5px 10px;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
 }
 
 .status.delivered {
-    background: var(--success);
+  background: var(--success);
 }
 
 .status.pending {
-    background: var(--warning);
+  background: var(--warning);
 }
 
 .status.return {
-    background: var(--danger);
+  background: var(--danger);
 }
 
 .status.progress {
-    background: var(--warning);
+  background: var(--warning);
 }
 
 .status.complete {
-    background: var(--success);
+  background: var(--success);
 }
 
 .status.declined {
-    background: var(--danger);
+  background: var(--danger);
 }
 
 .action-dropdown {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid var(--grey);
-    cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--grey);
+  cursor: pointer;
 }
 
 .report {
-    display: none;
+  display: none;
 }
 
 /* ================================== Forms ===================================================== */
@@ -511,8 +505,8 @@ body {
   border-radius: 5px;
 }
 
-.form-group input[type="email"],
-.form-group input[type="tel"] {
+.form-group input[type='email'],
+.form-group input[type='tel'] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;

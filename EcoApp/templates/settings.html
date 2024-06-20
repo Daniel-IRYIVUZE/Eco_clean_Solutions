@@ -6,10 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/logo.jpg" type="jpg">
+    <link rel="icon" href="../images/logo.jpg" type="jpg">
     <title>ECS | User Settings</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="static/user-dash.css">
+    <link rel="stylesheet" href="../static/user-dash.css">
+    <link rel="stylesheet" href="../static/admin-dash.css">
+    
+
+    <link rel="stylesheet" href="../static/settings.css">
 </head>
 
 <body>
@@ -18,14 +22,14 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="user-dash.html">
-                        <img class="icon" src="images/logo.png" alt="">
+                    <a href="{{ url_for('user_dash') }}">
+                        <img class="icon" src="../static/images/logo.png" alt="">
                         <span class="topup">ECO CLEAN SOLUTION</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="user-dash.html">
+                    <a href="{{ url_for('user_dash') }}">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -34,16 +38,7 @@
                 </li>
 
                 <li>
-                    <a href="userrepo.html">
-                        <span class="icon">
-                            <ion-icon name="receipt-outline"></ion-icon>
-                        </span>
-                        <span class="title">Report</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
+                    <a href="{{ url_for('settings') }}">
                         <span class="icon">
                             <ion-icon name="cog-outline"></ion-icon>
                         </span>
@@ -54,7 +49,7 @@
                 <li>
 
                     <li>
-                    <a href="login.html" class="logout">
+                    <a href="{{ url_for('logout') }}" class="logout">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>
                         </span>
@@ -73,73 +68,72 @@
             </div>
 
             <!-- ================ Settings Form ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                        <h1>MY PROFILE</h1>
-                        <form id="registrationForm">
-                            <div class="form-grid">
-                              <div class="form-group">
-                                <label for="registrationId">Registration ID</label>
-                                <input type="text" id="registrationId" name="registrationId" required>
-                                <div class="error" id="registrationIdError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="companyName">Name</label>
-                                <input type="text" id="companyName" name="companyName" required>
-                                <div class="error" id="companyNameError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="district">District</label>
-                                <input type="text" id="companyName" name="companyName" required>
-                                <div class="error" id="districtError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="sector">Sector</label>
-                                <input type="text" id="companyName" name="companyName" required>
-                                <div class="error" id="sectorError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="cell">Cell</label>
-                                <input type="text" id="companyName" name="companyName" required>
-                                <div class="error" id="cellError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="village">Village</label>
-                                <input type="text" id="companyName" name="companyName" required>
-                                <div class="error" id="villageError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                                <div class="error" id="emailError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="email">New password</label>
-                                <input type="text" id="password" name="password" required>
-                                <div class="error" id="passwordError"></div>
-                              </div>
-                              <div class="form-group">
-                                <label for="phoneNumber">Phone Number</label>
-                                <div class="phone-group">
-                                  <select id="countryCode" name="countryCode" required>
-                                    <option value="+250">+250</option>
-                                    <option value="+1">+1</option>
-                                    <option value="+44">+44</option>
-                                  </select>
-                                  <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{9}">
-                                </div>
-                                <div class="error" id="phoneNumberError"></div>
-                              </div>
-                              <div class="form-group">
-                                <button type="submit">SAVE</button>
-                              </div>
-                            </div>
-                          </form>
+            <div class="container">
+              <h2>MY PROFILE</h2>
+              <form method="POST" action="{{ url_for('settings') }}">
+                  {{ form.hidden_tag() }}
+                  <div class="form-group">
+                      {{ form.firstname.label }}
+                      {{ form.firstname }}
+                      <div class="text-danger">{{ form.firstname.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.lastname.label }}
+                      {{ form.lastname }}
+                      <div class="text-danger">{{ form.lastname.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.district.label }}
+                      {{ form.district }}
+                      <div class="text-danger">{{ form.district.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.sector.label }}
+                      {{ form.sector }}
+                      <div class="text-danger">{{ form.sector.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.cell.label }}
+                      {{ form.cell }}
+                      <div class="text-danger">{{ form.cell.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.village.label }}
+                      {{ form.village }}
+                      <div class="text-danger">{{ form.village.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.email.label }}
+                      {{ form.email }}
+                      <div class="text-danger">{{ form.email.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.street.label }}
+                      {{ form.street }}
+                      <div class="text-danger">{{ form.street.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.current_password.label }}
+                      {{ form.current_password }}
+                      <div class="text-danger">{{ form.current_password.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                      {{ form.password.label }}
+                      {{ form.password }}
+                      <div class="text-danger">{{ form.password.errors[0] }}</div>
+                  </div>
+                  <div class="form-group">
+                    {{ form.confirm_password.label }}
+                    {{ form.confirm_password }}
+                    <div class="text-danger">{{ form.confirm_password.errors[0] }}</div>
                 </div>
-    </div>
-
+                  <div class="form-group">
+                      {{ form.submit(class="button") }}
+                  </div>
+              </form>
+          </div>
     <!-- =========== Scripts =========  -->
-    <script src="static/user-dash.js"></script>
+    <script src="../static/user-dash.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
