@@ -47,4 +47,12 @@ jobs:
 
     - name: Deploy to web server
       run: |
-        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@18.209.48.20 'sudo docker pull niyonshutidavid/ecoapp:latest && sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest'
+        ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ubuntu@18.209.48.20 '
+          CONTAINER_ID=$(sudo docker ps --filter ancestor=niyonshutidavid/ecoapp:latest -q)
+          if [ ! -z "$CONTAINER_ID" ]; then
+            sudo docker stop $CONTAINER_ID
+            sudo docker rm $CONTAINER_ID
+          fi
+          sudo docker pull niyonshutidavid/ecoapp:latest
+          sudo docker run -d -p 5000:5000 niyonshutidavid/ecoapp:latest
+        '
